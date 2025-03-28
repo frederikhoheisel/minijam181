@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://knpcno01u32p"]
+
+[ext_resource type="Script" uid="uid://dto6t1h1njrpl" path="res://entities/horde/horde.gd" id="1_jfvhc"]
+[ext_resource type="PackedScene" uid="uid://nnrrjpehies4" path="res://entities/horde/hase_placeholder.tscn" id="2_0db1f"]
+
+[node name="Horde" type="CharacterBody2D"]
+script = ExtResource("1_jfvhc")
+rabbit_scene = ExtResource("2_0db1f")
+
+[node name="RabbitContainer" type="Node2D" parent="."]
+unique_name_in_owner = true

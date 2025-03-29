@@ -37,26 +37,28 @@ func update_line(delta: float):
 		if $Line2D.points.size() == 2:
 			var prev_point:Vector2 = $Line2D.get_point_position(1)
 			$Line2D.clear_points()
-			$Line2D.add_point(position, 0)
-			$Line2D.add_point(adjust_line_point(prev_point.move_toward(target.global_position, delta * 400)), 1)
+			$Line2D.add_point(Vector2(0, 0), 0)
+			$Line2D.add_point(prev_point.move_toward(target.global_position - global_position, delta * 400), 1)
 		else:
 			$Line2D.clear_points()
-			$Line2D.add_point(position, 0)
-			$Line2D.add_point(adjust_line_point(target.global_position), 1)
+			$Line2D.add_point(Vector2(0, 0), 0)
+			$Line2D.add_point(target.global_position - global_position, 1)
 		$Line2D.show()
+		print($Line2D.points)
 	else:
 		$Line2D.hide()
 		
-func adjust_line_point(point: Vector2) -> Vector2:
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position, point)
-	var result = space_state.intersect_ray(query)
-	if result && result.collider.has_meta("IsRabbit"):
-		var shifted_vec = result.position - position
-		shifted_vec = shifted_vec.normalized() * (shifted_vec.length() + 6)
-		return shifted_vec + position
-	else:
-		return (point - position) * 100 + position
+#func adjust_line_point(point: Vector2) -> Vector2:
+	#var space_state = get_world_2d().direct_space_state
+	#var query = PhysicsRayQueryParameters2D.create(Vector2(0, 0), point)
+	#var result = space_state.intersect_ray(query)
+	#if result && result.collider.has_meta("IsRabbit"):
+		##var shifted_vec = result.position - position
+		##shifted_vec = shifted_vec.normalized() * (shifted_vec.length() + 6)
+		##return shifted_vec + position
+		#return result.position.normalized() * (result.position.length() + 6)
+	#else:
+		#return (point) * 100
 
 func reset_cooldown():
 	next_shot_in = shot_cooldown_secs

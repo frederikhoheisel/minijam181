@@ -70,6 +70,10 @@ func die(_death_type: String) -> void:
 	blood_particle.position = global_position
 	blood_particle.release_body_parts(color)
 	
+	match _death_type:
+		"headshot": 
+			%Sprite.play("headshot")
+	
 	for i in 3:
 		var test : PackedScene = body_part_scene
 		var instance : Node2D = test.instantiate()

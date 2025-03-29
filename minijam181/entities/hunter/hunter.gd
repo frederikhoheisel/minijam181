@@ -68,4 +68,4 @@ func try_set_target():
 		target = targets_in_range[0]
 
 func shoot(rabbit:Node2D) -> void:
-	rabbit.die()
+	rabbit.die("headshot")

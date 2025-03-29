@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=7 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]

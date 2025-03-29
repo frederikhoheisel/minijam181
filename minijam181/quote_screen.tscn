@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyh2o7ui6kxk8"]
+
+[ext_resource type="Script" uid="uid://bhr0i4hok7qpa" path="res://fade_in_out.gd" id="1_1qa7p"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuoteContainer" type="CenterContainer" parent="." node_paths=PackedStringArray("fade_elements")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qa7p")
+fade_elements = [NodePath("Panel/RichTextLabel"), NodePath("Panel3/RichTextLabel"), NodePath("Panel4/RichTextLabel"), NodePath("Panel2/RichTextLabel")]
+
+[node name="Panel" type="Panel" parent="QuoteContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel"]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -142.0
+offset_right = 290.0
+offset_bottom = 159.0
+text = "\"The lone rabbit dies,"
+
+[node name="Panel3" type="Panel" parent="QuoteContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel3"]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -142.0
+offset_right = 290.0
+offset_bottom = 159.0
+text = "
+   but the horde dies too,"
+
+[node name="Panel4" type="Panel" parent="QuoteContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel4"]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -142.0
+offset_right = 290.0
+offset_bottom = 159.0
+text = "
+                                              I guess.\""
+
+[node name="Panel2" type="Panel" parent="QuoteContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel2"]
+layout_mode = 0
+offset_left = 106.0
+offset_right = 402.0
+offset_bottom = 88.0
+text = "~ Someone, probably"

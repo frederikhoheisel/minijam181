@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://h2sdh736vg3n"]
+
+[ext_resource type="PackedScene" uid="uid://bq8k24vn51g04" path="res://Rasenmäher.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://blra8tbjk6riu" path="res://regen.tscn" id="2_0xm2m"]
+
+[sub_resource type="Curve2D" id="Curve2D_ig7tw"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4434.38, 844.013, 0, 0, 0, 0, -2859.02, -618.53, 0, 0, 0, 0, -618.523, -159.064, 0, 0, 0, 0, 1952, -608)
+}
+point_count = 4
+
+[node name="Main" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+rotation = -6.28796
+curve = SubResource("Curve2D_ig7tw")
+
+[node name="Rasenmäher" parent="Path2D" instance=ExtResource("1_ig7tw")]
+position = Vector2(1959.83, -609.368)
+rotation = -0.172904
+progress = 7046.15
+h_offset = 7.955
+
+[node name="Regen" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(40, -711)

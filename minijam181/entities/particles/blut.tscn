@@ -1,0 +1,757 @@
+[gd_scene load_steps=114 format=3 uid="uid://c7fvgl7ats6lj"]
+
+[sub_resource type="GDScript" id="GDScript_0odxw"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for child in get_children():
+		if child is GPUParticles2D:
+			child.emitting = true
+
+
+func release_body_parts(c : Color):
+	for child in %BodyParts.get_children():
+		if child is GPUParticles2D:
+			child.process_material.color = c
+			child.emitting = true
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0odxw"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjc5i"]
+atlas = SubResource("CompressedTexture2D_0odxw")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_hjc5i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kpnwy"]
+curve = SubResource("Curve_hjc5i")
+
+[sub_resource type="Curve" id="Curve_kpnwy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8dq3m"]
+curve = SubResource("Curve_kpnwy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kpnwy"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_8dq3m")
+alpha_curve = SubResource("CurveTexture_kpnwy")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpnwy"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dq3m"]
+atlas = SubResource("CompressedTexture2D_kpnwy")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_kp5yg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lfd8g"]
+curve = SubResource("Curve_kp5yg")
+
+[sub_resource type="Curve" id="Curve_c3os5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn8ua"]
+curve = SubResource("Curve_c3os5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2r5hh"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_sn8ua")
+alpha_curve = SubResource("CurveTexture_lfd8g")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_milb0"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub5l8"]
+atlas = SubResource("CompressedTexture2D_milb0")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_q7qnj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_78tdi"]
+curve = SubResource("Curve_q7qnj")
+
+[sub_resource type="Curve" id="Curve_6vnuk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b1xi6"]
+curve = SubResource("Curve_6vnuk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_21v75"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_b1xi6")
+alpha_curve = SubResource("CurveTexture_78tdi")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tod3w"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu72t"]
+atlas = SubResource("CompressedTexture2D_tod3w")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_0odxw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hjc5i"]
+curve = SubResource("Curve_0odxw")
+
+[sub_resource type="Curve" id="Curve_8dq3m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kp5yg"]
+curve = SubResource("Curve_8dq3m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lfd8g"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_kp5yg")
+alpha_curve = SubResource("CurveTexture_hjc5i")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hjc5i"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpnwy"]
+atlas = SubResource("CompressedTexture2D_hjc5i")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_lfd8g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c3os5"]
+curve = SubResource("Curve_lfd8g")
+
+[sub_resource type="Curve" id="Curve_sn8ua"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2r5hh"]
+curve = SubResource("Curve_sn8ua")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_milb0"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_2r5hh")
+alpha_curve = SubResource("CurveTexture_c3os5")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ub5l8"]
+load_path = "res://.godot/imported/blood.png-c20ac1e4634b43649b8760e9037a23e2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7qnj"]
+atlas = SubResource("CompressedTexture2D_ub5l8")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_2r5hh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_milb0"]
+curve = SubResource("Curve_2r5hh")
+
+[sub_resource type="Curve" id="Curve_ub5l8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q7qnj"]
+curve = SubResource("Curve_ub5l8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_78tdi"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_q7qnj")
+alpha_curve = SubResource("CurveTexture_milb0")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8dq3m"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp5yg"]
+atlas = SubResource("CompressedTexture2D_8dq3m")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_milb0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ub5l8"]
+curve = SubResource("Curve_milb0")
+
+[sub_resource type="Curve" id="Curve_78tdi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6vnuk"]
+curve = SubResource("Curve_78tdi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b1xi6"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_6vnuk")
+alpha_curve = SubResource("CurveTexture_ub5l8")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_21v75"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tod3w"]
+atlas = SubResource("CompressedTexture2D_21v75")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_xu72t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_747ee"]
+curve = SubResource("Curve_xu72t")
+
+[sub_resource type="Curve" id="Curve_u6alm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0fu6"]
+curve = SubResource("Curve_u6alm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pe5rv"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_n0fu6")
+alpha_curve = SubResource("CurveTexture_747ee")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kp5yg"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfd8g"]
+atlas = SubResource("CompressedTexture2D_kp5yg")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_b1xi6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_21v75"]
+curve = SubResource("Curve_b1xi6")
+
+[sub_resource type="Curve" id="Curve_tod3w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xu72t"]
+curve = SubResource("Curve_tod3w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_747ee"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_xu72t")
+alpha_curve = SubResource("CurveTexture_21v75")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lfd8g"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3os5"]
+atlas = SubResource("CompressedTexture2D_lfd8g")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_21v75"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tod3w"]
+curve = SubResource("Curve_21v75")
+
+[sub_resource type="Curve" id="Curve_747ee"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u6alm"]
+curve = SubResource("Curve_747ee")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0fu6"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_u6alm")
+alpha_curve = SubResource("CurveTexture_tod3w")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3os5"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn8ua"]
+atlas = SubResource("CompressedTexture2D_c3os5")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_n0fu6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pe5rv"]
+curve = SubResource("Curve_n0fu6")
+
+[sub_resource type="Curve" id="Curve_e0e74"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bj6e2"]
+curve = SubResource("Curve_e0e74")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dlg0g"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_bj6e2")
+alpha_curve = SubResource("CurveTexture_pe5rv")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sn8ua"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r5hh"]
+atlas = SubResource("CompressedTexture2D_sn8ua")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_pe5rv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e0e74"]
+curve = SubResource("Curve_pe5rv")
+
+[sub_resource type="Curve" id="Curve_bj6e2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dlg0g"]
+curve = SubResource("Curve_bj6e2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ex1mw"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_dlg0g")
+alpha_curve = SubResource("CurveTexture_e0e74")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2r5hh"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_milb0"]
+atlas = SubResource("CompressedTexture2D_2r5hh")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_dlg0g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ex1mw"]
+curve = SubResource("Curve_dlg0g")
+
+[sub_resource type="Curve" id="Curve_r8do0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4ry1o"]
+curve = SubResource("Curve_r8do0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vac7y"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_4ry1o")
+alpha_curve = SubResource("CurveTexture_ex1mw")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q7qnj"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78tdi"]
+atlas = SubResource("CompressedTexture2D_q7qnj")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_ex1mw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r8do0"]
+curve = SubResource("Curve_ex1mw")
+
+[sub_resource type="Curve" id="Curve_4ry1o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vac7y"]
+curve = SubResource("Curve_4ry1o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3uv7r"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_vac7y")
+alpha_curve = SubResource("CurveTexture_r8do0")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78tdi"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vnuk"]
+atlas = SubResource("CompressedTexture2D_78tdi")
+region = Rect2(64, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_vac7y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3uv7r"]
+curve = SubResource("Curve_vac7y")
+
+[sub_resource type="Curve" id="Curve_i3qcf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c0vf0"]
+curve = SubResource("Curve_i3qcf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fan81"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_c0vf0")
+alpha_curve = SubResource("CurveTexture_3uv7r")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6vnuk"]
+load_path = "res://.godot/imported/bodyparts.png-cde1f1808829898eb351628f1123e1ca.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1xi6"]
+atlas = SubResource("CompressedTexture2D_6vnuk")
+region = Rect2(72, 0, 8, 8)
+
+[sub_resource type="Curve" id="Curve_3uv7r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i3qcf"]
+curve = SubResource("Curve_3uv7r")
+
+[sub_resource type="Curve" id="Curve_c0vf0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fan81"]
+curve = SubResource("Curve_c0vf0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wobp1"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_fan81")
+alpha_curve = SubResource("CurveTexture_i3qcf")
+
+[node name="Blut" type="Node2D"]
+script = SubResource("GDScript_0odxw")
+
+[node name="Blut" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_hjc5i")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_kpnwy")
+
+[node name="Blut2" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_8dq3m")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_2r5hh")
+
+[node name="Blut3" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_ub5l8")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_21v75")
+
+[node name="Blut4" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_xu72t")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_lfd8g")
+
+[node name="Blut5" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_kpnwy")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_milb0")
+
+[node name="Blut6" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_q7qnj")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_78tdi")
+
+[node name="BodyParts" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="BodyPart" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_kp5yg")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_b1xi6")
+
+[node name="BodyPart2" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_tod3w")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_pe5rv")
+
+[node name="BodyPart3" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_lfd8g")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_747ee")
+
+[node name="BodyPart4" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_c3os5")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_n0fu6")
+
+[node name="BodyPart5" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_sn8ua")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_dlg0g")
+
+[node name="BodyPart6" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_2r5hh")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_ex1mw")
+
+[node name="BodyPart7" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_milb0")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_vac7y")
+
+[node name="BodyPart8" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_78tdi")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_3uv7r")
+
+[node name="BodyPart9" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_6vnuk")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_fan81")
+
+[node name="BodyPart10" type="GPUParticles2D" parent="BodyParts"]
+texture_filter = 3
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_b1xi6")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_wobp1")

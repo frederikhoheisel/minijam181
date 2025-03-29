@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
-[ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="3_qohg2"]
 
 [sub_resource type="GDScript" id="GDScript_5gx2l"]
 script/source = "extends RigidBody2D
@@ -11,11 +11,6 @@ script/source = "extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -29,25 +24,25 @@ radius = 52.345
 
 [node name="level" type="Node2D"]
 
-[node name="Pickup" parent="." instance=ExtResource("3_qohg2")]
-position = Vector2(114, 41)
-scale = Vector2(10, 10)
+[node name="background" parent="." instance=ExtResource("1_vkbyq")]
 
 [node name="Hinderniss" type="RigidBody2D" parent="."]
-position = Vector2(209, 167)
 gravity_scale = 0.0
 script = SubResource("GDScript_5gx2l")
 
 [node name="Area2D" type="Area2D" parent="Hinderniss"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hinderniss/Area2D"]
+position = Vector2(381, 216)
 shape = SubResource("CircleShape2D_oi3di")
 
 [node name="Icon" type="Sprite2D" parent="Hinderniss"]
+position = Vector2(380, 216)
 scale = Vector2(0.546875, 0.484375)
 texture = ExtResource("2_qohg2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hinderniss"]
+position = Vector2(381, 216)
 shape = SubResource("CircleShape2D_oi3di")
 
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]

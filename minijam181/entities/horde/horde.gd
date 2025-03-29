@@ -15,8 +15,8 @@ func _ready() -> void:
 	rabbit = rabbit_scene.instantiate()
 	spawn_in_area()
 
-func get_input():
-	var input = Vector2()
+func get_input() -> Vector2:
+	var input : Vector2 = Vector2()
 	if Input.is_action_pressed('right'):
 		input.x += 1
 	if Input.is_action_pressed('left'):
@@ -27,7 +27,7 @@ func get_input():
 		input.y -= 1
 	return input
 
-func _physics_process(delta):
+func _physics_process(delta : float) -> void:
 	var direction: Vector2 = get_input() * delta
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
@@ -35,14 +35,14 @@ func _physics_process(delta):
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("rabbit_inc"):
+	if Input.is_action_pressed("rabbit_inc"):
 		num_rabbit += 1
 		spawn_in_area()
 
 func spawn_in_area() -> void:
 	var randx : float = randf_range(-10, 10)
 	var randy : float = randf_range(-10, 10)
-	var new_rabbit: RigidBody2D = rabbit.duplicate()
+	var new_rabbit : RigidBody2D = rabbit.duplicate()
 	new_rabbit.target = %RabbitContainer
 	new_rabbit.position = Vector2(randx, randy)
 	%RabbitContainer.add_child(new_rabbit)

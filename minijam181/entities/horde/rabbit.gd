@@ -7,18 +7,39 @@ var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
 
+var last_pos : Vector2 = Vector2.ZERO
+@export var movement_speed_thresshhold : float = 1.0
+var is_idling : bool = true
+
+var colors = [Color(0.5, 0.2, 0.0, 1.0),
+			  Color(0.2, 0.1, 0.0, 1.0),
+			  Color(0.6, 0.1, 0.4, 1.0),
+			  Color(0.8, 0.4, 0.1, 1.0)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	%Sprite.animation = "idle"
+	%Sprite.modulate = colors[randi() % colors.size()]
+	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_in_horde:
 		return
-	var direction : Vector2 = (target.position - position) * delta
-	move_and_collide(direction)
+	var direction_to_center : Vector2 = (target.position - position) * delta
+	move_and_collide(direction_to_center)
+	
+	var pseudo_speed = global_position - last_pos
+	%Sprite.scale.x = 1 if pseudo_speed.x > 0 else -1
+	last_pos = global_position
+	if pseudo_speed.length() > movement_speed_thresshhold:
+		%Sprite.play("run")
+		is_idling = false
+	else:
+		if not is_idling:
+			%Sprite.animation = "idle"
+		is_idling = true
+		
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -38,3 +59,14 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 func die():
 	print("ded")
 	queue_free()
+
+
+func _on_idle_anim_timer_timeout() -> void:
+	if not is_idling:
+		return
+	var rng : int = randi_range(0, 3)
+	if rng == 0:
+		%Sprite.play("idle_blink")
+	elif rng == 1:
+		%Sprite.play("idle_bob")
+	$IdleAnimTimer.start()

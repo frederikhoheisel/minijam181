@@ -50,7 +50,6 @@ shape = SubResource("CircleShape2D_oi3di")
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
-zoom = Vector2(0.2, 0.2)
 
 [connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
 [connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

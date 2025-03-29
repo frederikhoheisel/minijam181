@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta : float) -> void:
     if startMoving:
-        progress_ratio = lerp(0, 1, runningTime)
+        progress_ratio = lerp(0, 1, (1.0 * runningTime) / timeToFinishPath)
         runningTime += delta
     pass
 

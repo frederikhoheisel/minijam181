@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq8k24vn51g04"]
 
-[ext_resource type="Script" uid="uid://ndonp0x34d27" path="res://rasenmäher.gd" id="1_qcjfw"]
+[ext_resource type="Script" uid="uid://ndonp0x34d27" path="res://entities/rasenmäher/rasenmäher.gd" id="1_qcjfw"]
 [ext_resource type="Texture2D" uid="uid://c8xt3j1vd68v3" path="res://assets/rasenmäher.png" id="2_enxyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcjfw"]
@@ -15,8 +15,8 @@ texture_repeat = 2
 scale = Vector2(50, 50)
 texture = ExtResource("2_enxyu")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Character2D" type="CharacterBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character2D"]
 position = Vector2(-14.5, 109.5)
 shape = SubResource("RectangleShape2D_qcjfw")

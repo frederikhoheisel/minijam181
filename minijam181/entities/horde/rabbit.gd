@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-@export var num_coll_in_horde : int = 4
+@export var num_coll_in_horde : int = 5
 
-@export var target : Vector2
+@export var target : Node2D
 var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
@@ -31,7 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_in_horde:
 		return
-	var direction_to_center : Vector2 = (target - position) * delta
+	var direction_to_center : Vector2 = (target.position - position) * delta
 	move_and_collide(direction_to_center)
 	
 	var pseudo_speed = global_position - last_pos

@@ -2,8 +2,8 @@ extends Node2D
 
 @export var shot_cooldown_secs:float = 1.0
 var next_shot_in:float
-var targets_in_range:Array[Node]
-var target:Node
+var targets_in_range:Array[Node2D]
+var target:Node2D
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.get_meta("IsRabbit"):
@@ -13,6 +13,8 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if targets_in_range.has(body):
 		targets_in_range.erase(body)
+		if target == body:
+			target = null
 
 func _ready() -> void:
 	reset_cooldown()
@@ -50,7 +52,9 @@ func adjust_line_point(point: Vector2) -> Vector2:
 	var query = PhysicsRayQueryParameters2D.create(position, point)
 	var result = space_state.intersect_ray(query)
 	if result && result.collider.has_meta("IsRabbit"):
-		return result.position
+		var shifted_vec = result.position - position
+		shifted_vec = shifted_vec.normalized() * (shifted_vec.length() + 6)
+		return shifted_vec + position
 	else:
 		return (point - position) * 100 + position
 

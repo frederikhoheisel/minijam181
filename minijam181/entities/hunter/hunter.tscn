@@ -9,7 +9,7 @@ radius = 450.028
 
 [sub_resource type="Gradient" id="Gradient_u80ck"]
 offsets = PackedFloat32Array(0.987261, 1)
-colors = PackedColorArray(0.92549, 0.0627451, 0, 1, 0.92549, 0.0627451, 0, 0.407843)
+colors = PackedColorArray(0.92549, 0.0627451, 0, 0.784314, 0.92549, 0.0627451, 0, 0.407843)
 
 [node name="Hunter" type="Node2D"]
 script = ExtResource("1_hgowg")

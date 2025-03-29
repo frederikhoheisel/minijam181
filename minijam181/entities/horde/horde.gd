@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
-var rabbit : RigidBody2D
 
 var num_rabbit : int = 1
 
@@ -12,7 +11,6 @@ var num_rabbit : int = 1
 
 
 func _ready() -> void:
-	rabbit = rabbit_scene.instantiate()
 	spawn_in_area()
 
 func get_input() -> Vector2:
@@ -42,7 +40,9 @@ func _physics_process(delta : float) -> void:
 func spawn_in_area() -> void:
 	var randx : float = randf_range(-10, 10)
 	var randy : float = randf_range(-10, 10)
-	var new_rabbit : RigidBody2D = rabbit.duplicate()
+	var rabbit : PackedScene = rabbit_scene
+	var instance : RigidBody2D = rabbit.instantiate()
+	var new_rabbit : RigidBody2D = instance.duplicate()
 	new_rabbit.target = %RabbitContainer
 	new_rabbit.position = Vector2(randx, randy)
 	%RabbitContainer.add_child(new_rabbit)

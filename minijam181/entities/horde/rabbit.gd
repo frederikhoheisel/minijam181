@@ -8,6 +8,7 @@ var is_in_horde : bool = false
 var num_collisions : int = 0
 
 var blood_particle : Node2D = preload("res://entities/particles/blut.tscn").instantiate()
+var body_part : PackedScene = preload("res://entities/particles/corpse.tscn")
 
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
@@ -63,10 +64,14 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 
 func die():
-	print("ded")
 	get_tree().root.add_child(blood_particle)
 	blood_particle.position = global_position
 	blood_particle.release_body_parts(color)
+	
+	var test = body_part
+	var instance = test.instantiate()
+	instance.position = global_position
+	get_tree().root.add_child(instance)
 	queue_free()
 
 

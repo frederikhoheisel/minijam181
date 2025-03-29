@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://d21egvitomscu"]
 
-[ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
+[ext_resource type="Script" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
 [ext_resource type="Texture2D" uid="uid://ccvxco5h51hbi" path="res://assets/hase/rabbit.png" id="2_cj7r5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj7r5"]
@@ -135,6 +135,7 @@ animations = [{
 mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("1_cj7r5")
+metadata/IsRabbit = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
 rotation = 4.71239

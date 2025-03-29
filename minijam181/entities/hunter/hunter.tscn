@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctbiyqwsoktef"]
+
+[ext_resource type="Script" uid="uid://36cxunjnu2h0" path="res://entities/hunter/hunter.gd" id="1_hgowg"]
+[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_ink7b"]
+[ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="3_ink7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln42d"]
+radius = 450.028
+
+[node name="Hunter" type="Node2D"]
+script = ExtResource("1_hgowg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ink7b")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CircleShape" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_ln42d")
+
+[node name="Horde" parent="." instance=ExtResource("3_ink7b")]
+position = Vector2(634, 367)
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

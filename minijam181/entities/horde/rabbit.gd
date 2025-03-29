@@ -8,15 +8,15 @@ var is_in_horde : bool = false
 var num_collisions : int = 0
 
 var blood_particle : Node2D = preload("res://entities/particles/blut.tscn").instantiate()
-var body_part : PackedScene = preload("res://entities/particles/corpse.tscn")
+var body_part_scene : PackedScene = preload("res://entities/particles/corpse.tscn")
 
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
 var is_idling : bool = true
 
-var colors = [Color(0.5, 0.2, 0.0, 1.0),
-			  Color(0.2, 0.1, 0.0, 1.0),
-			  Color(0.6, 0.1, 0.4, 1.0),
+var colors = [Color(1.0, 1.0, 1.0, 1.0),
+			  Color(0.5, 0.5, 0.5, 1.0),
+			  Color(0.95, 0.55, 0.25, 1.0),
 			  Color(0.8, 0.4, 0.1, 1.0)]
 
 var color : Color
@@ -25,6 +25,8 @@ var color : Color
 func _ready() -> void:
 	%Sprite.animation = "idle"
 	color = colors[randi() % colors.size()]
+	if randf()>0.9995:
+		color = Color(0,0,0,1)
 	%Sprite.modulate = color
 	last_pos = global_position
 
@@ -68,10 +70,12 @@ func die():
 	blood_particle.position = global_position
 	blood_particle.release_body_parts(color)
 	
-	var test = body_part
-	var instance = test.instantiate()
-	instance.position = global_position
-	get_tree().root.add_child(instance)
+	for i in 3:
+		var test : PackedScene = body_part_scene
+		var instance : Node2D = test.instantiate()
+		instance.position = global_position + Vector2(randi_range(-10, 10), randi_range(-10, 10))
+		instance.modulate = color
+		get_tree().root.add_child(instance)
 	queue_free()
 
 

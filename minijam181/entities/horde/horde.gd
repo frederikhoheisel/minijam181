@@ -42,7 +42,6 @@ func spawn_in_area() -> void:
 	var randy : float = randf_range(-10, 10)
 	var rabbit : PackedScene = rabbit_scene
 	var instance : RigidBody2D = rabbit.instantiate()
-	var new_rabbit : RigidBody2D = instance.duplicate()
-	new_rabbit.target = %RabbitContainer
-	new_rabbit.position = Vector2(randx, randy)
-	%RabbitContainer.add_child(new_rabbit)
+	instance.target = %RabbitContainer
+	instance.position = Vector2(randx, randy)
+	%RabbitContainer.add_child(instance)

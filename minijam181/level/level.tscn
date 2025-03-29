@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=7 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
@@ -48,6 +48,7 @@ shape = SubResource("CircleShape2D_oi3di")
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
+position_smoothing_enabled = true
 
 [node name="Pickup" parent="." instance=ExtResource("3_qohg2")]
 position = Vector2(263, 75)

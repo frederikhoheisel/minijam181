@@ -1,8 +1,5 @@
 extends Area2D
 
-var frames
-
-
 func _ready() -> void:
 	var index: int = randi_range(0, 2)
 	match index:

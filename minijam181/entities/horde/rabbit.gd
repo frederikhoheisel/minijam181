@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var num_coll_in_horde : int = 5
+@export var num_coll_in_horde : int = 4
 
 @export var target : Node2D
 var speed : int = 400
@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 	move_and_collide(direction_to_center)
 	
 	var pseudo_speed = global_position - last_pos
-	%Sprite.scale.x = 1 if pseudo_speed.x > 0 else -1
+	if abs(pseudo_speed.length()) > 1:
+		%Sprite.scale.x = 1 if pseudo_speed.x > 0 else -1
 	last_pos = global_position
 	if pseudo_speed.length() > movement_speed_thresshhold:
 		%Sprite.play("run")
@@ -63,8 +64,8 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 func die():
 	print("ded")
-	get_parent().add_child(blood_particle)
-	blood_particle.position = position
+	get_tree().root.add_child(blood_particle)
+	blood_particle.position = global_position
 	blood_particle.release_body_parts(color)
 	queue_free()
 

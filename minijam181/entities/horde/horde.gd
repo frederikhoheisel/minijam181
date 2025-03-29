@@ -35,7 +35,7 @@ func _physics_process(delta : float) -> void:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("rabbit_inc"):
+	if Input.is_action_pressed("rabbit_inc"):
 		num_rabbit += 1
 		spawn_in_area()
 

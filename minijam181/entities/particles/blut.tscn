@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7fvgl7ats6lj"]
+
+[ext_resource type="Texture2D" uid="uid://doei6bpa8nru2" path="res://assets/blood_particle1.png" id="1_hjc5i"]
+
+[sub_resource type="Curve" id="Curve_hjc5i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kpnwy"]
+curve = SubResource("Curve_hjc5i")
+
+[sub_resource type="Curve" id="Curve_kpnwy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8dq3m"]
+curve = SubResource("Curve_kpnwy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kpnwy"]
+particle_flag_disable_z = true
+direction = Vector3(2, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 150, 0)
+scale_min = 0.2
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_8dq3m")
+alpha_curve = SubResource("CurveTexture_kpnwy")
+hue_variation_min = 0.00999998
+hue_variation_max = 0.15
+
+[node name="Blut" type="GPUParticles2D"]
+texture_filter = 3
+emitting = false
+texture = ExtResource("1_hjc5i")
+one_shot = true
+explosiveness = 0.35
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_kpnwy")

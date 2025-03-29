@@ -7,6 +7,8 @@ var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
 
+var blood_particle : GPUParticles2D = preload("res://entities/particles/blut.tscn").instantiate()
+
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
 var is_idling : bool = true
@@ -58,6 +60,9 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 func die():
 	print("ded")
+	blood_particle.emitting = true
+	get_parent().add_child(blood_particle)
+	blood_particle.position = position
 	queue_free()
 
 

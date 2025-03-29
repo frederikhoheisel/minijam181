@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xbcv7c60eeb"]
+
+[ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
+[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi3di"]
+radius = 52.345
+
+[node name="level" type="Node2D"]
+
+[node name="Hinderniss" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hinderniss"]
+position = Vector2(381, 216)
+shape = SubResource("CircleShape2D_oi3di")
+
+[node name="Icon" type="Sprite2D" parent="Hinderniss"]
+position = Vector2(380, 216)
+scale = Vector2(0.546875, 0.484375)
+texture = ExtResource("2_qohg2")
+
+[node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
+
+[node name="Camera2D" type="Camera2D" parent="Horde"]
+zoom = Vector2(0.2, 0.2)

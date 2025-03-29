@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://1jfuep4cr376"]
+
+[ext_resource type="Texture2D" uid="uid://bamo7im1umne1" path="res://assets/objects/bodyparts.png" id="1_sp8fe"]
+[ext_resource type="Script" uid="uid://57socjbhnf30" path="res://entities/particles/corpse.gd" id="1_yxrrd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxrrd"]
+atlas = ExtResource("1_sp8fe")
+region = Rect2(0, 0, 8, 8)
+
+[node name="Corpse" type="Node2D"]
+script = ExtResource("1_yxrrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = SubResource("AtlasTexture_yxrrd")

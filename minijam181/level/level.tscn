@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7xbcv7c60eeb"]
+
+[ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
+[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
+[ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="3_qohg2"]
+
+[sub_resource type="GDScript" id="GDScript_5gx2l"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method(\"die\"):
+		body.die()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi3di"]
+radius = 52.345
+
+[node name="level" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("1_vkbyq")]
+
+[node name="Hinderniss" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+script = SubResource("GDScript_5gx2l")
+
+[node name="Area2D" type="Area2D" parent="Hinderniss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hinderniss/Area2D"]
+position = Vector2(381, 216)
+shape = SubResource("CircleShape2D_oi3di")
+
+[node name="Icon" type="Sprite2D" parent="Hinderniss"]
+position = Vector2(380, 216)
+scale = Vector2(0.546875, 0.484375)
+texture = ExtResource("2_qohg2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hinderniss"]
+position = Vector2(381, 216)
+shape = SubResource("CircleShape2D_oi3di")
+
+[node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
+
+[node name="Camera2D" type="Camera2D" parent="Horde"]
+
+[node name="Pickup" parent="." instance=ExtResource("3_qohg2")]
+position = Vector2(263, 75)
+
+[node name="Pickup2" parent="." instance=ExtResource("3_qohg2")]
+position = Vector2(196, 95)
+
+[node name="Pickup3" parent="." instance=ExtResource("3_qohg2")]
+position = Vector2(142, 140)
+
+[node name="Pickup4" parent="." instance=ExtResource("3_qohg2")]
+position = Vector2(212, 168)
+
+[node name="Pickup5" parent="." instance=ExtResource("3_qohg2")]
+position = Vector2(286, 125)
+
+[connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
+[connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

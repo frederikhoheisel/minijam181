@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D overlay_tex: repeat_enable, filter_nearest;
-uniform float scale = 0.000244140625;//0.00390625; // calculated by 1/texture size e.g. 1/144
+uniform float scale = 0.0009765625;//0.000244140625;//0.00390625; // calculated by 1/texture size e.g. 1/144
 varying vec2 world_position;
 
 

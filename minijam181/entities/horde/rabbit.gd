@@ -7,7 +7,7 @@ var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
 
-var blood_particle : GPUParticles2D = preload("res://entities/particles/blut.tscn").instantiate()
+var blood_particle : Node2D = preload("res://entities/particles/blut.tscn").instantiate()
 
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
@@ -18,10 +18,13 @@ var colors = [Color(0.5, 0.2, 0.0, 1.0),
 			  Color(0.6, 0.1, 0.4, 1.0),
 			  Color(0.8, 0.4, 0.1, 1.0)]
 
+var color : Color
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Sprite.animation = "idle"
-	%Sprite.modulate = colors[randi() % colors.size()]
+	color = colors[randi() % colors.size()]
+	%Sprite.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,9 +63,9 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 func die():
 	print("ded")
-	blood_particle.emitting = true
 	get_parent().add_child(blood_particle)
 	blood_particle.position = position
+	blood_particle.release_body_parts(color)
 	queue_free()
 
 

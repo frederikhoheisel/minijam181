@@ -62,8 +62,8 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if num_collisions <= num_coll_in_horde:
 		is_in_horde = false
 
-
-func die():
+#gets enum for type of death plays animation accordinglyaw
+func die(_death_type: String) -> void:
 	get_tree().root.add_child(blood_particle)
 	blood_particle.position = global_position
 	blood_particle.release_body_parts(color)

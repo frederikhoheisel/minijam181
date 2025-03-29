@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://57socjbhnf30" path="res://entities/particles/corpse.gd" id="1_yxrrd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxrrd"]
+resource_local_to_scene = true
 atlas = ExtResource("1_sp8fe")
 region = Rect2(0, 0, 8, 8)
 

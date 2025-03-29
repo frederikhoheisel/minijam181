@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var num_coll_in_horde : int = 2
+@export var num_coll_in_horde : int = 4
 
 var target : Node2D
 var speed : int = 400
@@ -33,3 +33,8 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	num_collisions -= 1
 	if num_collisions <= num_coll_in_horde:
 		is_in_horde = false
+
+
+func die():
+	print("ded")
+	queue_free()

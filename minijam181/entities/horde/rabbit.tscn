@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cpvxoha0qb758"]
 
-[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="1_n0dra"]
-[ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/hase_placeholder.gd" id="1_pod20"]
+[ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
+[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_sec4c"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_pod20"]
 length = 60.0
@@ -28,10 +28,10 @@ radius = 56.0803
 [node name="Rabbit" type="RigidBody2D"]
 mass = 0.001
 gravity_scale = 0.0
-script = ExtResource("1_pod20")
+script = ExtResource("1_cj7r5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n0dra")
+texture = ExtResource("2_sec4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)

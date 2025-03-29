@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var rabbit_scene : PackedScene
 var rabbit : RigidBody2D
 
+var num_rabbit : int = 1
+
 #movement
 @export var speed : int = 500
 @export var friction : float = 0.01
@@ -11,6 +13,7 @@ var rabbit : RigidBody2D
 
 func _ready() -> void:
 	rabbit = rabbit_scene.instantiate()
+	spawn_in_area()
 
 func get_input():
 	var input = Vector2()
@@ -42,7 +45,6 @@ func _physics_process(delta):
 
 var spiral_turns : float = 3.0
 var spiral_spread : float = 500.0
-var num_rabbit : int = 1
 var max_rabbit : int = 64
 
 func spawn_in_area():

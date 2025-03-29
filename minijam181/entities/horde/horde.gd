@@ -28,7 +28,7 @@ func get_input():
 	return input
 
 func _physics_process(delta):
-	var direction = get_input() * delta
+	var direction: Vector2 = get_input() * delta
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
 	else:
@@ -39,10 +39,10 @@ func _physics_process(delta):
 		num_rabbit += 1
 		spawn_in_area()
 
-func spawn_in_area():
+func spawn_in_area() -> void:
 	var randx : float = randf_range(-10, 10)
 	var randy : float = randf_range(-10, 10)
-	var new_rabbit = rabbit.duplicate()
+	var new_rabbit: RigidBody2D = rabbit.duplicate()
 	new_rabbit.target = %RabbitContainer
 	new_rabbit.position = Vector2(randx, randy)
 	%RabbitContainer.add_child(new_rabbit)

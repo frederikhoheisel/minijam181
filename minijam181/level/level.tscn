@@ -48,6 +48,7 @@ shape = SubResource("CircleShape2D_oi3di")
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
+position_smoothing_enabled = true
 
 [node name="Pickup" parent="." instance=ExtResource("3_qohg2")]
 position = Vector2(263, 75)

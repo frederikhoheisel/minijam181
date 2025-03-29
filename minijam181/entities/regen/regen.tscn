@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://blra8tbjk6riu"]
+
+[ext_resource type="Shader" uid="uid://d2juifeu3plqr" path="res://regen.gdshader" id="1_1fqkv"]
+[ext_resource type="Script" uid="uid://dsghielosweih" path="res://regen.gd" id="1_ylyvs"]
+[ext_resource type="Texture2D" uid="uid://cyl18yq8erogp" path="res://assets/rain.png" id="2_lxyah"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ds3oq"]
+shader = ExtResource("1_1fqkv")
+shader_parameter/count = 150
+shader_parameter/slant = -0.01
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.005, 0.2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4n1h"]
+
+[sub_resource type="Gradient" id="Gradient_ylyvs"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.207865, 0.559925, 0.76779, 0.911985)
+colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0.588235, 0, 0, 0, 0.196078, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sl2gl"]
+gradient = SubResource("Gradient_ylyvs")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.1, 0.1)
+
+[node name="Regen" type="Area2D"]
+script = ExtResource("1_ylyvs")
+
+[node name="Rain" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ds3oq")
+position = Vector2(213.818, 307.403)
+rotation = 3.13773
+scale = Vector2(23.6611, -37.105)
+texture = ExtResource("2_lxyah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(201, 672)
+scale = Vector2(23.8021, 10.3384)
+shape = SubResource("CircleShape2D_n4n1h")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(200, 674)
+scale = Vector2(7.27968, 2.87559)
+texture = SubResource("GradientTexture2D_sl2gl")

@@ -1,20 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctbiyqwsoktef"]
+[gd_scene load_steps=4 format=3 uid="uid://ctbiyqwsoktef"]
 
 [ext_resource type="Script" uid="uid://36cxunjnu2h0" path="res://entities/hunter/hunter.gd" id="1_hgowg"]
-[ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_ink7b"]
+[ext_resource type="Texture2D" uid="uid://bbblcxr65s4hf" path="res://assets/objects/forest.png" id="2_frvg4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln42d"]
-radius = 450.028
-
-[sub_resource type="Gradient" id="Gradient_u80ck"]
-offsets = PackedFloat32Array(0.987261, 1)
-colors = PackedColorArray(0.92549, 0.0627451, 0, 0.784314, 0.92549, 0.0627451, 0, 0.407843)
+radius = 270.0
 
 [node name="Hunter" type="Node2D"]
 script = ExtResource("1_hgowg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ink7b")
+texture = ExtResource("2_frvg4")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 64)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
@@ -24,9 +22,11 @@ shape = SubResource("CircleShape2D_ln42d")
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
 width = 1.0
-default_color = Color(0.926595, 0.0618504, 0, 1)
-gradient = SubResource("Gradient_u80ck")
+default_color = Color(0.92549, 0.0627451, 0, 0.741176)
 joint_mode = 2
+
+[node name="LaserOrigin" type="Node2D" parent="."]
+position = Vector2(-7, -5)
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

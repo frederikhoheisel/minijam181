@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var shot_cooldown_secs:float = 1.0
+@export var shot_cooldown_secs:float = 1.5
 var next_shot_in:float
 var targets_in_range:Array[Node2D]
 var target:Node2D
@@ -37,14 +37,14 @@ func update_line(delta: float):
 		if $Line2D.points.size() == 2:
 			var prev_point:Vector2 = $Line2D.get_point_position(1)
 			$Line2D.clear_points()
-			$Line2D.add_point(Vector2(0, 0), 0)
+			$Line2D.add_point($LaserOrigin.position, 0)
 			$Line2D.add_point(prev_point.move_toward(target.global_position - global_position, delta * 400), 1)
 		else:
 			$Line2D.clear_points()
-			$Line2D.add_point(Vector2(0, 0), 0)
+			$Line2D.add_point($LaserOrigin.position, 0)
 			$Line2D.add_point(target.global_position - global_position, 1)
 		$Line2D.show()
-		print($Line2D.points)
+		#print($Line2D.points)
 	else:
 		$Line2D.hide()
 		

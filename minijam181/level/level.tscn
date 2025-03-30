@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=37 format=4 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://j6hio56u2a6j" path="res://entities/trees/dirtytree.tscn" id="11_fm1jd"]
 [ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="11_xii2b"]
 [ext_resource type="PackedScene" uid="uid://bq8k24vn51g04" path="res://entities/rasenmäher/Rasenmäher.tscn" id="15_sui6v"]
+[ext_resource type="PackedScene" uid="uid://bti7qyqn1yx87" path="res://assets/ui/main_ui.tscn" id="18_b7y0n"]
+[ext_resource type="PackedScene" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
+[ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
+[ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -70,6 +74,26 @@ _data = {
 "points": PackedVector2Array(105.867, 66.9353, -105.867, -66.9353, -2.03137, 0.526031, -43.7129, -7.51315, 43.7129, 7.51315, 233.969, 5.52603, -54.6411, -7.51315, 54.6411, 7.51315, 424.969, 70.526, -43.0298, 10.9282, 43.0298, -10.9282, 703.969, 23.526, -86.0597, -2.73205, 86.0597, 2.73205, 914.969, -36.474, -68.3013, 2.73205, 68.3013, -2.73205, 1116.97, 36.526, 0, 0, 0, 0, 1218.97, -1.47397)
 }
 point_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4yay"]
+atlas = ExtResource("20_b7y0n")
+region = Rect2(3, 19, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl7j7"]
+atlas = ExtResource("20_b7y0n")
+region = Rect2(19, 35, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0wo3"]
+atlas = ExtResource("20_b7y0n")
+region = Rect2(19, 19, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdsbj"]
+atlas = ExtResource("20_b7y0n")
+region = Rect2(67, 19, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml0fe"]
+atlas = ExtResource("20_b7y0n")
+region = Rect2(51, 35, 16, 16)
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_44x8d")
@@ -3745,7 +3769,13 @@ position = Vector2(261, -354)
 position = Vector2(361, 172)
 
 [node name="grass7" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-86, 140)
+position = Vector2(-91, 66)
+
+[node name="grass91" parent="Plains" instance=ExtResource("9_sui6v")]
+position = Vector2(-80, -41)
+
+[node name="grass92" parent="Plains" instance=ExtResource("9_sui6v")]
+position = Vector2(-80, -41)
 
 [node name="grass8" parent="Plains" instance=ExtResource("9_sui6v")]
 position = Vector2(19, -339)
@@ -3985,16 +4015,16 @@ position = Vector2(268, 72)
 position = Vector2(496, 37)
 
 [node name="grass82" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(22, -32)
+position = Vector2(152, -83)
 
 [node name="grass83" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(126, 57)
+position = Vector2(157, 96)
 
 [node name="grass84" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-102, 37)
+position = Vector2(-153, 93)
 
 [node name="grass85" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-87, -51)
+position = Vector2(-150, -79)
 
 [node name="Path2D5" type="Path2D" parent="Plains"]
 position = Vector2(-656, -266)
@@ -4006,7 +4036,7 @@ rotation = -2.57779
 timeToFinishPath = 30
 
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
-speed = 400
+speed = 100
 friction = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
@@ -4018,9 +4048,43 @@ limit_right = 1865
 limit_bottom = 465
 position_smoothing_enabled = true
 
+[node name="MainUi" parent="Horde/Camera2D" instance=ExtResource("18_b7y0n")]
+
 [node name="Regen" parent="." instance=ExtResource("8_0v1st")]
 z_index = 1
 position = Vector2(1204, -741)
 
 [node name="Bird" parent="." instance=ExtResource("9_cw150")]
 position = Vector2(-1123, 187)
+
+[node name="Eggs" type="Node" parent="."]
+
+[node name="Egg" parent="Eggs" instance=ExtResource("19_kp5pi")]
+position = Vector2(1639, -775)
+texture = SubResource("AtlasTexture_v4yay")
+eggId = 4
+
+[node name="Egg2" parent="Eggs" instance=ExtResource("19_kp5pi")]
+position = Vector2(-129, 51)
+texture = SubResource("AtlasTexture_xl7j7")
+eggId = 0
+
+[node name="Egg3" parent="Eggs" instance=ExtResource("19_kp5pi")]
+position = Vector2(222, -1114)
+texture = SubResource("AtlasTexture_o0wo3")
+eggId = 3
+
+[node name="Egg4" parent="Eggs" instance=ExtResource("19_kp5pi")]
+position = Vector2(-1403, -1096)
+texture = SubResource("AtlasTexture_kdsbj")
+eggId = 2
+
+[node name="Egg5" parent="Eggs" instance=ExtResource("19_kp5pi")]
+position = Vector2(-1462, 2)
+texture = SubResource("AtlasTexture_ml0fe")
+eggId = 1
+
+[node name="SafeZone" parent="." instance=ExtResource("22_v4yay")]
+position = Vector2(-144, -80)
+scale = Vector2(1.1, 1.1)
+metadata/_edit_lock_ = true

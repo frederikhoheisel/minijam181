@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 		return
 	if dead:
 		return
-	var direction_to_center : Vector2 = (target.position - position) * delta * speed
+	var direction_to_center : Vector2 = (target.position - position) * delta
 	move_and_collide(direction_to_center)
 	
 	var pseudo_speed : Vector2 = global_position - last_pos

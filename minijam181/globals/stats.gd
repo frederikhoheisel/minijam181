@@ -1,6 +1,6 @@
 extends Node
 
-var current_horde_size: int = 0:
+var current_horde_size: int = 3:
 	set(value):
 		current_horde_size = value
 		if current_horde_size <= 0:

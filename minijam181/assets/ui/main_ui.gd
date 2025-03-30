@@ -24,10 +24,12 @@ func update_ui(eggId : int) -> void:
 
 func hide_ui(hide : bool) -> void:
 	if hide:
-		get_child(0).show()
+		$CanvasLayer/TextureRect.show()
+		$CanvasLayer/VolumeSlider.show()
 		locked = true
 	else:
-		get_child(0).hide()
+		$CanvasLayer/TextureRect.hide()
+		$CanvasLayer/VolumeSlider.hide()
 		locked = false
 
 

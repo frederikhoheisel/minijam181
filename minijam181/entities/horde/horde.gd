@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
-var num_rabbit : int = 1
+var size : int = 1
 
 #movement
 @export var speed : int = 300
@@ -12,6 +12,7 @@ var num_rabbit : int = 1
 
 func _ready() -> void:
 	spawn_in_area()
+	SignalBus.rabbit_died.connect(_on_rabbit_died)
 
 func get_input() -> Vector2:
 	var input : Vector2 = Vector2()
@@ -34,7 +35,8 @@ func _physics_process(delta : float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_pressed("rabbit_inc"):
-		num_rabbit += 1
+		size += 1
+		print("Rabbits: ", size)
 		spawn_in_area()
 
 func spawn_in_area() -> void:
@@ -45,3 +47,7 @@ func spawn_in_area() -> void:
 	instance.target = %RabbitContainer
 	instance.position = Vector2(randx, randy)
 	%RabbitContainer.add_child(instance)
+	
+func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> void:
+	size -= 1
+	print("Rabbits: ", size)

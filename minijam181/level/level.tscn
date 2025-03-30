@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=38 format=4 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
 [ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
+[ext_resource type="PackedScene" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -4088,3 +4089,7 @@ eggId = 1
 position = Vector2(-144, -80)
 scale = Vector2(1.1, 1.1)
 metadata/_edit_lock_ = true
+
+[node name="RiverAudioPlayer" parent="." node_paths=PackedStringArray("horde") instance=ExtResource("23_xl7j7")]
+position = Vector2(-293, 445)
+horde = NodePath("../Horde")

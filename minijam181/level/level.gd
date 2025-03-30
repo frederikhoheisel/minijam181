@@ -17,14 +17,14 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 		"headshot": 
 			rabbit.headshotted = true
 			rabbit.play_anim("headshot")
-			splatter(pos, color, false, true, 3)
+			splatter(pos, color, false, true, 5)
 			rabbit.reparent.call_deferred($GoreContainer, true)
 			blood(color, pos)
 			rabbit.get_node("HeadshotAudioPlayer").play()
 		"landmine":
 			rabbit.headshotted = true
 			rabbit.play_anim("splatter")
-			splatter(pos, color, true, true, 3)
+			splatter(pos, color, true, true, 5)
 			rabbit.reparent.call_deferred($GoreContainer, true)
 
 			blood(color, pos)

@@ -42,52 +42,52 @@ func hide_ui(hide : bool) -> void:
 	var labelSettings : LabelSettings = LabelSettings.new()
 	labelSettings.font_size = 8
 
-	for i in range(0, vboxContainer.get_child_count()):
-		vboxContainer.get_child(i).queue_free()
-
-	if Stats.total_deaths > 0:
-		newLabel.text = "Total Deaths: " + str(Stats.total_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.mine_deaths > 0:
-		newLabel.text = "Mine Deaths: " + str(Stats.mine_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.hunter_deaths > 0:
-		newLabel.text = "Hunter Deaths: " + str(Stats.hunter_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.zap_deaths > 0:
-		newLabel.text = "Zap Deaths: " + str(Stats.zap_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.drown_deaths > 0:
-		newLabel.text = "Drown Deaths: " + str(Stats.drown_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.bird_deaths > 0:
-		newLabel.text = "Bird Deaths: " + str(Stats.bird_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
-
-	newLabel = Label.new()
-
-	if Stats.rasenmäher_deaths > 0:
-		newLabel.text = "Mower Deaths: " + str(Stats.rasenmäher_deaths)
-		newLabel.label_settings = labelSettings
-		vboxContainer.add_child(newLabel)
+	#for i in range(0, vboxContainer.get_child_count()):
+		#vboxContainer.get_child(i).queue_free()
+#
+	#if Stats.total_deaths > 0:
+		#newLabel.text = "Total Deaths: " + str(Stats.total_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.mine_deaths > 0:
+		#newLabel.text = "Mine Deaths: " + str(Stats.mine_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.hunter_deaths > 0:
+		#newLabel.text = "Hunter Deaths: " + str(Stats.hunter_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.zap_deaths > 0:
+		#newLabel.text = "Zap Deaths: " + str(Stats.zap_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.drown_deaths > 0:
+		#newLabel.text = "Drown Deaths: " + str(Stats.drown_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.bird_deaths > 0:
+		#newLabel.text = "Bird Deaths: " + str(Stats.bird_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)
+#
+	#newLabel = Label.new()
+#
+	#if Stats.rasenmäher_deaths > 0:
+		#newLabel.text = "Mower Deaths: " + str(Stats.rasenmäher_deaths)
+		#newLabel.label_settings = labelSettings
+		#vboxContainer.add_child(newLabel)

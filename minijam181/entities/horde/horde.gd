@@ -39,6 +39,7 @@ func _physics_process(delta : float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_pressed("rabbit_inc"):
+		#Stats.current_horde_size += 1
 		size += 1
 		print("Rabbits: ", size)
 		spawn_in_area()
@@ -55,6 +56,7 @@ func spawn_in_area() -> void:
 	
 func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> void:
 	size -= 1
+	#Stats.current_horde_size -= 1
 	print("Rabbits: ", size)
 	
 
@@ -62,5 +64,6 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 func breed() -> void:
 	if num_rabbit == 1:
 		return
+	#Stats.current_horde_size += 1
 	spawn_in_area()
 	$LoveParticles.emitting = true

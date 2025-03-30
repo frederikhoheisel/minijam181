@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://globals/signal_bus.gd"
+Stats="*res://stats.gd"
 
 [debug]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=8 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
 [ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="3_qohg2"]
+[ext_resource type="PackedScene" uid="uid://dqokxxvlby04s" path="res://bird.tscn" id="5_ktfr2"]
 
 [sub_resource type="GDScript" id="GDScript_5gx2l"]
 script/source = "extends RigidBody2D
@@ -63,6 +64,9 @@ position = Vector2(212, 168)
 
 [node name="Pickup5" parent="." instance=ExtResource("3_qohg2")]
 position = Vector2(286, 125)
+
+[node name="Area2D" parent="." instance=ExtResource("5_ktfr2")]
+position = Vector2(1, 11)
 
 [connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
 [connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

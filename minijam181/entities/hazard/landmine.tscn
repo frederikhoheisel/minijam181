@@ -1,5 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d007f2w53yafs"]
-
+[gd_scene load_steps=21 format=3 uid="uid://ccg1oj0cmnxfo"]
 
 [ext_resource type="Script" uid="uid://c02qmojv3tm7c" path="res://entities/hazard/landmine.gd" id="1_obobh"]
 [ext_resource type="Texture2D" uid="uid://dbyshobo5o4rm" path="res://assets/objects/landmine.png" id="2_o4qj2"]

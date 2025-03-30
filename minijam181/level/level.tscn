@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
-[ext_resource type="PackedScene" uid="uid://d007f2w53yafs" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://ccg1oj0cmnxfo" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://ctbiyqwsoktef" path="res://entities/hunter/hunter.tscn" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://blra8tbjk6riu" path="res://entities/regen/regen.tscn" id="8_0v1st"]
-[ext_resource type="PackedScene" uid="uid://o4af7h46qiuh" path="res://entities/bird/bird.tscn" id="8_6gtgk"]
 [ext_resource type="PackedScene" uid="uid://w4pl5a1mr6n" path="res://entities/river/river.tscn" id="8_6gtgk"]
 
 [sub_resource type="GDScript" id="GDScript_5gx2l"]
@@ -82,6 +81,7 @@ position = Vector2(316, -42)
 
 [node name="bird" parent="." instance=ExtResource("8_6gtgk")]
 position = Vector2(-1, -60)
+
 [node name="River" parent="." instance=ExtResource("8_6gtgk")]
 position = Vector2(-190, 375)
 

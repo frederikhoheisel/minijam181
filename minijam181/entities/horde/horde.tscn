@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8pq7oxr4lt1i"]
+[gd_scene load_steps=6 format=3 uid="uid://c8pq7oxr4lt1i"]
 
 [ext_resource type="Script" uid="uid://chiejtdk5evtb" path="res://entities/horde/horde.gd" id="1_l0pov"]
 [ext_resource type="PackedScene" uid="uid://d21egvitomscu" path="res://entities/horde/rabbit.tscn" id="2_0db1f"]
@@ -10,7 +10,12 @@ load_path = "res://.godot/imported/objects.png-fa1ceb89840fd9345bc36f64b4f4a353.
 atlas = SubResource("CompressedTexture2D_6grg5")
 region = Rect2(0, 0, 8.79573, 7.31267)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6grg5"]
+radius = 8.0
+
 [node name="Horde" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_l0pov")
 rabbit_scene = ExtResource("2_0db1f")
 friction = 1.0
@@ -36,3 +41,6 @@ initial_velocity_max = 300.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6grg5")

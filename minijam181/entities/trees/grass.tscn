@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb2a162u7n47r"]
+
+[ext_resource type="PackedScene" uid="uid://c5rv3i5xe0svf" path="res://entities/trees/tree.tscn" id="1_42co1"]
+[ext_resource type="Texture2D" uid="uid://bbblcxr65s4hf" path="res://assets/objects/forest.png" id="2_ei35s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ccyq"]
+resource_local_to_scene = true
+atlas = ExtResource("2_ei35s")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42co1"]
+radius = 4.0
+height = 20.0
+
+[node name="grass" instance=ExtResource("1_42co1")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(1, -11)
+texture = SubResource("AtlasTexture_6ccyq")
+region_rect = Rect2(96, 72, 32, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_42co1")

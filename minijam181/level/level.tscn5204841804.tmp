@@ -4011,7 +4011,6 @@ speed = 400
 friction = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
-unique_name_in_owner = true
 position = Vector2(0, -1)
 limit_left = -1600
 limit_top = -1250

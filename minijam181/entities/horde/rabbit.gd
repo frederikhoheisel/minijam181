@@ -29,7 +29,7 @@ func _ready() -> void:
 	color = colors[randi() % colors.size()]
 	if randf()>0.9995:
 		color = Color(0,0,0,1)
-	self.modulate = color
+	%Sprite.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		return
 	if dead:
 		return
-	var direction_to_center : Vector2 = (target.position - position) * delta
+	var direction_to_center : Vector2 = (target.position - position) * delta * speed
 	move_and_collide(direction_to_center)
 	
 	var pseudo_speed : Vector2 = global_position - last_pos

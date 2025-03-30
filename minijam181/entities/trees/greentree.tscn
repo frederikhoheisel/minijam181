@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://7op2d7drug5x"]
+
+[ext_resource type="PackedScene" uid="uid://c5rv3i5xe0svf" path="res://entities/trees/tree.tscn" id="1_0tp7k"]
+[ext_resource type="Texture2D" uid="uid://bbblcxr65s4hf" path="res://assets/objects/forest.png" id="2_rp220"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjaxa"]
+resource_local_to_scene = true
+atlas = ExtResource("2_rp220")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tp7k"]
+radius = 2.0
+height = 18.0
+
+[node name="greentree" instance=ExtResource("1_0tp7k")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_tjaxa")
+region_rect = Rect2(32.423, 0.475618, 31.8164, 65.5592)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0tp7k")

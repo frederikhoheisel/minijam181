@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
-var size : int = 1
-@export var num_rabbit : int = 1
+var size : int = 2
 
 #movement
 @export var speed : int = 300
@@ -13,7 +12,7 @@ var size : int = 1
 
 func _ready() -> void:
 	SignalBus.rabbit_died.connect(_on_rabbit_died)
-	for i : int in num_rabbit:
+	for i : int in size:
 		spawn_in_area()
 	SignalBus.fruit_eaten.connect(breed)
 
@@ -71,3 +70,8 @@ func breed() -> void:
 	$LoveParticles.emission_sphere_radius = size * 2
 	$LoveParticles.amount = 2 * size
 	$LoveParticles.emitting = true
+func reset() -> void:
+	for child in %RabbitContainer.get_children():
+		child.queue_free()
+	spawn_in_area()
+	spawn_in_area()

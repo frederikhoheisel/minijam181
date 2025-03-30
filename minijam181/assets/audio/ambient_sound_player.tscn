@@ -4,6 +4,7 @@
 
 [node name="AmbientSoundPlayer" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_lex6j")
+volume_db = 10.0
 autoplay = true
 max_distance = 4096.0
 attenuation = 0.000560888

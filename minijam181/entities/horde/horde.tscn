@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8pq7oxr4lt1i"]
+[gd_scene load_steps=7 format=3 uid="uid://c8pq7oxr4lt1i"]
 
 [ext_resource type="Script" uid="uid://chiejtdk5evtb" path="res://entities/horde/horde.gd" id="1_l0pov"]
 [ext_resource type="PackedScene" uid="uid://d21egvitomscu" path="res://entities/horde/rabbit.tscn" id="2_0db1f"]
+[ext_resource type="PackedScene" uid="uid://cfv1hajb1ewd3" path="res://assets/audio/ambient_sound_player.tscn" id="3_43oor"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6grg5"]
 load_path = "res://.godot/imported/objects.png-fa1ceb89840fd9345bc36f64b4f4a353.ctex"
@@ -44,3 +45,5 @@ current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6grg5")
+
+[node name="AmbientSoundPlayer" parent="." instance=ExtResource("3_43oor")]

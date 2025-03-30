@@ -15,7 +15,6 @@ func _process(_delta) -> void:
 	pass
 	
 
-
 func _on_trigger_area_body_entered(body: Node2D) -> void:
 	print(body)
 	if !body.has_meta("IsRabbit"):

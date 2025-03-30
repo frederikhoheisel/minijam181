@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
-[ext_resource type="PackedScene" uid="uid://ccg1oj0cmnxfo" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://d007f2w53yafs" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://ctbiyqwsoktef" path="res://entities/hunter/hunter.tscn" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://blra8tbjk6riu" path="res://entities/regen/regen.tscn" id="8_0v1st"]
 [ext_resource type="PackedScene" uid="uid://o4af7h46qiuh" path="res://entities/bird/bird.tscn" id="8_6gtgk"]
@@ -34,15 +34,6 @@ script = ExtResource("1_44x8d")
 
 [node name="GoreContainer" type="Node" parent="."]
 
-[node name="River" parent="." instance=ExtResource("8_6gtgk")]
-position = Vector2(-240, 380)
-
-[node name="River2" parent="." instance=ExtResource("8_6gtgk")]
-position = Vector2(-496, 380)
-
-[node name="River3" parent="." instance=ExtResource("8_6gtgk")]
-position = Vector2(16, 380)
-
 [node name="Hinderniss" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
 script = SubResource("GDScript_5gx2l")
@@ -71,13 +62,13 @@ position_smoothing_enabled = true
 position = Vector2(579, -546)
 
 [node name="Landmine" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(147, 255)
+position = Vector2(87, 151)
 
 [node name="Landmine2" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(231, 276)
+position = Vector2(54, 210)
 
 [node name="Landmine3" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(67, 336)
+position = Vector2(97, 274)
 
 [node name="Hunter" parent="." instance=ExtResource("6_44x8d")]
 position = Vector2(-171, -140)
@@ -91,6 +82,8 @@ position = Vector2(316, -42)
 
 [node name="bird" parent="." instance=ExtResource("8_6gtgk")]
 position = Vector2(-1, -60)
+[node name="River" parent="." instance=ExtResource("8_6gtgk")]
+position = Vector2(-190, 375)
 
 [connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
 [connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

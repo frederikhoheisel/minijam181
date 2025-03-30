@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddfcarqxw7b0i"]
 
-[ext_resource type="Script" uid="uid://bl4mrqvi1qvh0" path="res://volume_slider.gd" id="1_w2ppy"]
+[ext_resource type="Script" path="res://volume_slider.gd" id="1_w2ppy"]
 
 [node name="VolumeSlider" type="Panel"]
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
 script = ExtResource("1_w2ppy")
 
 [node name="SliderNode" type="HSlider" parent="."]

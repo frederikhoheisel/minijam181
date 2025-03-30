@@ -245,13 +245,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f51l0")
 }, {
-"duration": 2.0,
+"duration": 3.5,
 "texture": SubResource("AtlasTexture_lb6p6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xl5rq")
 }, {
-"duration": 2.0,
+"duration": 3.5,
 "texture": SubResource("AtlasTexture_l472y")
 }, {
 "duration": 1.0,
@@ -476,7 +476,9 @@ shape = SubResource("CircleShape2D_ekdd1")
 unique_name_in_owner = true
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_4vbqd")
-animation = &"splatter"
+animation = &"electrocute"
+frame = 12
+frame_progress = 1.0
 
 [node name="IdleAnimTimer" type="Timer" parent="."]
 autostart = true

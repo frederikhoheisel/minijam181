@@ -21,15 +21,16 @@ func _process(delta : float) -> void:
 		progress_ratio = lerp(0, 1, (1.0 * runningTime) / timeToFinishPath)
 		runningTime += delta
 	if lastPosition.x - position.x < 0:
-		$Sprite2D.flip_h = true
+		%Sprite2D.flip_h = true
 
 	lastPosition = position
 
-	%Sprite2D.position.y += sin(Time.get_ticks_msec() * strength) * amplitude
+
+	%Sprite2D.position.y = sin(Time.get_ticks_msec() * 500) * strength + lastPosition.y
 
 
 
 
 func _on_character_2d_body_entered(body : Node2D) -> void:
-	if body.has_method("die"):
-		body.die()
+	if body.has_meta("IsRabbit"):
+		body.die("mäher")

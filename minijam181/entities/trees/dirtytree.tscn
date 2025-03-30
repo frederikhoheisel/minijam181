@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://j6hio56u2a6j"]
+
+[ext_resource type="PackedScene" uid="uid://c5rv3i5xe0svf" path="res://entities/trees/tree.tscn" id="1_p1or4"]
+[ext_resource type="Texture2D" uid="uid://bbblcxr65s4hf" path="res://assets/objects/forest.png" id="2_o4vss"]
+[ext_resource type="Script" uid="uid://bqoy7uqkenrou" path="res://entities/trees/dirtytree.gd" id="2_xfyxx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfyxx"]
+resource_local_to_scene = true
+atlas = ExtResource("2_o4vss")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_062fm"]
+size = Vector2(14, 92)
+
+[node name="dirtytree" instance=ExtResource("1_p1or4")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_xfyxx")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_xfyxx")
+region_enabled = false
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_062fm")

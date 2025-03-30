@@ -6,6 +6,7 @@ var current_horde_size: int = 0
 		# if current_horde_size <= 0:
 		# 	print("stats, horde leer")
 		#	SignalBus.restart.emit()
+
 	
 
 var total_deaths: int = 0
@@ -28,6 +29,7 @@ func _ready() -> void:
 	
 func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> void:
 	total_deaths +=1
+	current_horde_size -= 1
 	match death_type:
 		"headshot": 
 			hunter_deaths += 1

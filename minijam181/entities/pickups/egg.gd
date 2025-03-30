@@ -4,6 +4,6 @@ extends Sprite2D
 @onready var child : Area2D = $Area2D
 
 func _ready() -> void:
-    if child:
-        child.eggId = eggId
-    pass
+	if child:
+		child.eggId = eggId
+	pass

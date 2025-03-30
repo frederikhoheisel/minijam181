@@ -6,6 +6,7 @@ extends CharacterBody2D
 var start_size : int = 3
 var size : int = 0
 
+
 #movement
 @export var speed : int = 300
 @export var friction : float = 0.03
@@ -14,7 +15,8 @@ var size : int = 0
 
 func _ready() -> void:
 	SignalBus.rabbit_died.connect(_on_rabbit_died)
-	for i : int in start_size:
+	
+  for i : int in start_size:
 		spawn_in_area()
 	SignalBus.fruit_eaten.connect(breed)
 
@@ -76,9 +78,9 @@ func breed() -> void:
 	$LoveParticles.amount = 2 * size
 	$LoveParticles.emitting = true
 
-
 func reset() -> void:
 	for child in %RabbitContainer.get_children():
 		child.queue_free()
 	for i : int in start_size:
 		spawn_in_area()
+

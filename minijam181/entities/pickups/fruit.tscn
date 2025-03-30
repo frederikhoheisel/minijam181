@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://biyxwsdbmqt82"]
+
+[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://level/pickup_manager.gd" id="1_l3xob"]
+[ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="2_6h0n8"]
+
+[node name="fruit" type="Node"]
+script = ExtResource("1_l3xob")
+
+[node name="Pickup" parent="." instance=ExtResource("2_6h0n8")]
+position = Vector2(-123, 177)
+script = null
+
+[node name="Pickup2" parent="." instance=ExtResource("2_6h0n8")]
+position = Vector2(-198, 176)
+
+[node name="Pickup3" parent="." instance=ExtResource("2_6h0n8")]
+position = Vector2(-279, 176)
+
+[node name="Pickup4" parent="." instance=ExtResource("2_6h0n8")]
+position = Vector2(-356, 175)
+
+[node name="Pickup5" parent="." instance=ExtResource("2_6h0n8")]
+position = Vector2(-447, 177)

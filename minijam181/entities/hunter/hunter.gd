@@ -6,7 +6,7 @@ var targets_in_range:Array[Node2D]
 var target:Node2D
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.get_meta("IsRabbit"):
+	if body.has_meta("IsRabbit"):
 		targets_in_range.append(body)
 
 

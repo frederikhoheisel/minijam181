@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cicowufhaa43"]
+
+[ext_resource type="PackedScene" uid="uid://c5rv3i5xe0svf" path="res://entities/trees/tree.tscn" id="1_7eq6e"]
+[ext_resource type="Texture2D" uid="uid://bbblcxr65s4hf" path="res://assets/objects/forest.png" id="2_qfbe8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeg45"]
+resource_local_to_scene = true
+atlas = ExtResource("2_qfbe8")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7eq6e"]
+radius = 3.0
+height = 16.0
+
+[node name="deadtree" instance=ExtResource("1_7eq6e")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_eeg45")
+region_rect = Rect2(0, 0, 32, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7eq6e")

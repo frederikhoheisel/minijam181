@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=38 format=4 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=28 format=4 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
@@ -15,17 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bthf2wkppbfeb" path="res://entities/trees/bush.tscn" id="8_m5ivw"]
 [ext_resource type="PackedScene" uid="uid://o4af7h46qiuh" path="res://entities/bird/bird.tscn" id="9_cw150"]
 [ext_resource type="PackedScene" uid="uid://cb2a162u7n47r" path="res://entities/trees/grass.tscn" id="9_sui6v"]
-
-[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://entities/pickups/pickup_manager.gd" id="10_rhqlf"]
-[ext_resource type="PackedScene" uid="uid://cpvd08cykyh2u" path="res://entities/hazard/fence.tscn" id="10_xii2b"]
+[ext_resource type="PackedScene" uid="uid://dxhdj5xdheil7" path="res://entities/hazard/fence.tscn" id="10_xii2b"]
 [ext_resource type="PackedScene" uid="uid://j6hio56u2a6j" path="res://entities/trees/dirtytree.tscn" id="11_fm1jd"]
+[ext_resource type="PackedScene" uid="uid://b6rg7o5dv3vxo" path="res://entities/pickups/pickup.tscn" id="11_xii2b"]
 [ext_resource type="PackedScene" uid="uid://bq8k24vn51g04" path="res://entities/rasenmäher/Rasenmäher.tscn" id="15_sui6v"]
-[ext_resource type="PackedScene" uid="uid://bti7qyqn1yx87" path="res://assets/ui/main_ui.tscn" id="18_b7y0n"]
-[ext_resource type="PackedScene" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
-[ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
-[ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
-[ext_resource type="PackedScene" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
-[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://level/pickup_manager.gd" id="10_rhqlf"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -79,26 +71,6 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4yay"]
-atlas = ExtResource("20_b7y0n")
-region = Rect2(3, 19, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xl7j7"]
-atlas = ExtResource("20_b7y0n")
-region = Rect2(19, 35, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0wo3"]
-atlas = ExtResource("20_b7y0n")
-region = Rect2(19, 19, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdsbj"]
-atlas = ExtResource("20_b7y0n")
-region = Rect2(67, 19, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ml0fe"]
-atlas = ExtResource("20_b7y0n")
-region = Rect2(51, 35, 16, 16)
-
 [node name="level" type="Node2D"]
 script = ExtResource("1_44x8d")
 
@@ -125,6 +97,7 @@ position = Vector2(48, 442)
 [node name="River12" parent="River" instance=ExtResource("8_6gtgk")]
 position = Vector2(529, 479)
 rotation = 0.34262
+scale = Vector2(1, 1)
 
 [node name="River7" parent="River" instance=ExtResource("8_6gtgk")]
 position = Vector2(301, 440)
@@ -3625,7 +3598,7 @@ curve = SubResource("Curve2D_sui6v")
 
 [node name="Rasenmäher" parent="Plains/Path2D2" instance=ExtResource("15_sui6v")]
 position = Vector2(-239.506, -220.587)
-rotation = 0.237043
+rotation = 0.237042
 timeToFinishPath = 2
 
 [node name="Path2D3" type="Path2D" parent="Plains"]
@@ -3634,7 +3607,7 @@ curve = SubResource("Curve2D_kp5pi")
 
 [node name="Rasenmäher" parent="Plains/Path2D3" instance=ExtResource("15_sui6v")]
 position = Vector2(-196, -232)
-rotation = 0.371708
+rotation = 0.371709
 timeToFinishPath = 2
 
 [node name="Bird" parent="Plains" instance=ExtResource("9_cw150")]
@@ -3773,13 +3746,7 @@ position = Vector2(261, -354)
 position = Vector2(361, 172)
 
 [node name="grass7" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-91, 66)
-
-[node name="grass91" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-80, -41)
-
-[node name="grass92" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-80, -41)
+position = Vector2(-86, 140)
 
 [node name="grass8" parent="Plains" instance=ExtResource("9_sui6v")]
 position = Vector2(19, -339)
@@ -4019,16 +3986,16 @@ position = Vector2(268, 72)
 position = Vector2(496, 37)
 
 [node name="grass82" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(152, -83)
+position = Vector2(22, -32)
 
 [node name="grass83" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(157, 96)
+position = Vector2(126, 57)
 
 [node name="grass84" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-153, 93)
+position = Vector2(-102, 37)
 
 [node name="grass85" parent="Plains" instance=ExtResource("9_sui6v")]
-position = Vector2(-150, -79)
+position = Vector2(-87, -51)
 
 [node name="Path2D5" type="Path2D" parent="Plains"]
 position = Vector2(-656, -266)
@@ -4038,15 +4005,12 @@ curve = SubResource("Curve2D_v4yay")
 position = Vector2(-2.03137, 0.526031)
 rotation = -2.57779
 timeToFinishPath = 30
-strength = 1000
-amplitude = 0.1
 
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
-speed = 100
+speed = 400
 friction = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]
-unique_name_in_owner = true
 position = Vector2(0, -1)
 limit_left = -1600
 limit_top = -1250
@@ -4054,51 +4018,9 @@ limit_right = 1865
 limit_bottom = 465
 position_smoothing_enabled = true
 
-[node name="MainUi" parent="Horde/Camera2D" instance=ExtResource("18_b7y0n")]
-
 [node name="Regen" parent="." instance=ExtResource("8_0v1st")]
 z_index = 1
 position = Vector2(1204, -741)
 
-
-[node name="PickupManager" type="Node" parent="."]
-script = ExtResource("10_rhqlf")
-
 [node name="Bird" parent="." instance=ExtResource("9_cw150")]
 position = Vector2(-1123, 187)
-
-[node name="Eggs" type="Node" parent="."]
-
-[node name="Egg" parent="Eggs" instance=ExtResource("19_kp5pi")]
-position = Vector2(1639, -775)
-texture = SubResource("AtlasTexture_v4yay")
-eggId = 4
-
-[node name="Egg2" parent="Eggs" instance=ExtResource("19_kp5pi")]
-position = Vector2(-129, 51)
-texture = SubResource("AtlasTexture_xl7j7")
-eggId = 0
-
-[node name="Egg3" parent="Eggs" instance=ExtResource("19_kp5pi")]
-position = Vector2(222, -1114)
-texture = SubResource("AtlasTexture_o0wo3")
-eggId = 3
-
-[node name="Egg4" parent="Eggs" instance=ExtResource("19_kp5pi")]
-position = Vector2(-1403, -1096)
-texture = SubResource("AtlasTexture_kdsbj")
-eggId = 2
-
-[node name="Egg5" parent="Eggs" instance=ExtResource("19_kp5pi")]
-position = Vector2(-1462, 2)
-texture = SubResource("AtlasTexture_ml0fe")
-eggId = 1
-
-[node name="SafeZone" parent="." instance=ExtResource("22_v4yay")]
-position = Vector2(-144, -80)
-scale = Vector2(1.1, 1.1)
-metadata/_edit_lock_ = true
-
-[node name="RiverAudioPlayer" parent="." node_paths=PackedStringArray("horde") instance=ExtResource("23_xl7j7")]
-position = Vector2(-293, 445)
-horde = NodePath("../Horde")

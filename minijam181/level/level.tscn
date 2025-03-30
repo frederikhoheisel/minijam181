@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
 [ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
 [ext_resource type="PackedScene" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
+[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://level/pickup_manager.gd" id="10_rhqlf"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -4054,6 +4055,9 @@ position_smoothing_enabled = true
 [node name="Regen" parent="." instance=ExtResource("8_0v1st")]
 z_index = 1
 position = Vector2(1204, -741)
+
+[node name="PickupManager" type="Node" parent="."]
+script = ExtResource("10_rhqlf")
 
 [node name="Bird" parent="." instance=ExtResource("9_cw150")]
 position = Vector2(-1123, 187)

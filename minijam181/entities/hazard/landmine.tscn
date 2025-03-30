@@ -1,5 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://d007f2w53yafs"]
 
+
 [ext_resource type="Script" uid="uid://c02qmojv3tm7c" path="res://entities/hazard/landmine.gd" id="1_obobh"]
 [ext_resource type="Texture2D" uid="uid://dbyshobo5o4rm" path="res://assets/objects/landmine.png" id="2_o4qj2"]
 [ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_fhtll"]
@@ -57,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7lkje")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jxylp")
 }, {
 "duration": 1.0,
@@ -69,19 +70,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mmlui")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_ef535")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_uv78q")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_qwwkj")
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 13.0
+"speed": 8.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lshru"]
+atlas = ExtResource("3_o4qj2")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="Gradient" id="Gradient_o4qj2"]
+offsets = PackedFloat32Array(0, 0.995902)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhtll"]
+gradient = SubResource("Gradient_o4qj2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.2, 0.2)
+metadata/_snap_enabled = true
 
 [node name="Landmine" type="Node2D"]
 script = ExtResource("1_obobh")
@@ -110,8 +126,16 @@ stream = ExtResource("4_7lkje")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lshru")
 animation = &"explosion"
-frame = 4
-frame_progress = 0.0971482
+frame = 8
+frame_progress = 1.0
+
+[node name="Krater" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lshru")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.458824, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_fhtll")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

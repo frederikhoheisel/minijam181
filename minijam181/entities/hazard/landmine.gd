@@ -3,11 +3,14 @@ extends Node2D
 @export var timer_time : float = 1.0
 var count = 0
 func _ready() -> void:
+	$Krater.hide()
 	$Sprite2D.hide()
+	$AnimatedSprite2D.hide()
+	$PointLight2D.hide()
 	$ExplosionArea/CollisionShape2D.shape.radius = explosion_radius
 	$Timer.wait_time = timer_time
 	$ExplosionArea/CollisionShape2D.disabled = true
-	
+
 func _process(_delta) -> void:
 	pass
 	
@@ -27,10 +30,15 @@ func _on_trigger_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	$EntityAudioPlayer.play()
 	print("explode")
+	$PointLight2D.show()
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", false)
 	$Sprite2D.hide()
+	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("explosion")
+	$Krater.show()
+	$Krater.z_index = -1
 	await get_tree().create_timer(0.1).timeout
+	$PointLight2D.hide()
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", true)
 
 

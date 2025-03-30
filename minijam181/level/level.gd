@@ -36,6 +36,11 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 			rabbit.modulate = Color(1, 1, 1, 1)
 			rabbit.play_anim("electrocute")
 			splatter(pos, color, true, true, 3)
+		"river":
+			rabbit.reparent.call_deferred($GoreContainer, true)
+			rabbit.z_index+=10
+			rabbit.apply_impulse(Vector2(-.1, .03))
+			rabbit.play_anim("river")
 		"default": 
 			return
 	

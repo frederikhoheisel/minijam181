@@ -29,7 +29,7 @@ func _ready() -> void:
 	color = colors[randi() % colors.size()]
 	if randf()>0.9995:
 		color = Color(0,0,0,1)
-	self.modulate = color
+	%Sprite.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,8 +41,8 @@ func _process(delta: float) -> void:
 	var direction_to_center : Vector2 = (target.position - position) * delta
 	move_and_collide(direction_to_center)
 	
-	var pseudo_speed: Vector2 = global_position - last_pos
-	if abs(pseudo_speed.length()) > 1:
+	var pseudo_speed : Vector2 = global_position - last_pos
+	if abs(pseudo_speed.x) > 1:
 		%Sprite.scale.x = 1 if pseudo_speed.x > 0 else -1
 	last_pos = global_position
 	if pseudo_speed.length() > movement_speed_thresshhold:
@@ -84,13 +84,10 @@ func die(death_type: String) -> void:
 
 func _on_idle_anim_timer_timeout() -> void:
 	if dead:
-		if !headshotted:
-			queue_free()
 		return
-		
 	if not is_idling:
 		return
-	var rng : int = randi_range(0, 3)
+	var rng : int = randi_range(0, 4)
 	if rng == 0:
 		%Sprite.play("idle_blink")
 	elif rng == 1:
@@ -99,8 +96,11 @@ func _on_idle_anim_timer_timeout() -> void:
 	
 func play_anim(anim: String) -> void:
 	%Sprite.play(anim)
+	if anim == "river":
+		$GPUParticles2D.emitting = true
 
-
-
-
-	
+func _on_sprite_animation_finished() -> void:
+	if dead:
+		if !headshotted:
+			queue_free()
+		return

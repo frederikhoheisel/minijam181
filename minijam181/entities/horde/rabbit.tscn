@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d21egvitomscu"]
+[gd_scene load_steps=54 format=3 uid="uid://d21egvitomscu"]
 
 [ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
 [ext_resource type="Texture2D" uid="uid://ccvxco5h51hbi" path="res://assets/hase/rabbit.png" id="2_cj7r5"]

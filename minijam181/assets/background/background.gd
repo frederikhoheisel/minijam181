@@ -10,7 +10,7 @@ var flower_scene = preload("res://assets/background/flower.tscn")
 func _ready() -> void:
 	var flower = flower_scene
 	var flower_instance
-	var pos
+	var pos: Vector2
 	
 	for n in flower_num:
 		pos = Vector2(randf_range(-bg_obj_area.x, bg_obj_area.x), randf_range(-bg_obj_area.y, bg_obj_area.y))
@@ -20,5 +20,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

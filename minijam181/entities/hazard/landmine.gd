@@ -1,19 +1,21 @@
 extends Node2D
 @export var explosion_radius : int = 32
 @export var timer_time : float = 1.0
-
+var count = 0
 func _ready() -> void:
 	$Sprite2D.hide()
 	$ExplosionArea/CollisionShape2D.shape.radius = explosion_radius
 	$Timer.wait_time = timer_time
 	$ExplosionArea/CollisionShape2D.disabled = true
+	
 func _process(_delta) -> void:
 	pass
 	
 
 
 func _on_trigger_area_body_entered(_body: Node2D) -> void:
-	print("trigggerd")
+	print("triggerd")
+	print("minepos: ", position)
 	if $Timer.is_stopped():
 		$Sprite2D.show()
 		$Timer.start()
@@ -30,5 +32,9 @@ func _on_timer_timeout() -> void:
 
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
+	count += 1
+	print("sdlfghjkasödlfgkj: ", count)
 	if body.has_meta("IsRabbit"):
+		print(body.name)
+		#print("landmine: " + str(body.global_position))
 		body.die("landmine")

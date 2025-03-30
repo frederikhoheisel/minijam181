@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=10 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ccg1oj0cmnxfo" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://ctbiyqwsoktef" path="res://entities/hunter/hunter.tscn" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://blra8tbjk6riu" path="res://entities/regen/regen.tscn" id="8_0v1st"]
-[ext_resource type="PackedScene" uid="uid://o4af7h46qiuh" path="res://entities/bird/bird.tscn" id="8_6gtgk"]
 
 [sub_resource type="GDScript" id="GDScript_5gx2l"]
 script/source = "extends RigidBody2D
@@ -75,12 +74,6 @@ shot_cooldown_secs = 1.0
 
 [node name="Landmine4" parent="." instance=ExtResource("5_ktfr2")]
 position = Vector2(571, 110)
-
-[node name="Area2D" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(316, -42)
-
-[node name="bird" parent="." instance=ExtResource("8_6gtgk")]
-position = Vector2(-1, -60)
 
 [connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
 [connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

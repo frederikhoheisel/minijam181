@@ -14,16 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://bthf2wkppbfeb" path="res://entities/trees/bush.tscn" id="8_m5ivw"]
 [ext_resource type="PackedScene" uid="uid://o4af7h46qiuh" path="res://entities/bird/bird.tscn" id="9_cw150"]
 [ext_resource type="PackedScene" uid="uid://cb2a162u7n47r" path="res://entities/trees/grass.tscn" id="9_sui6v"]
-[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://entities/pickups/pickup_manager.gd" id="10_rhqlf"]
-[ext_resource type="PackedScene" uid="uid://cpvd08cykyh2u" path="res://entities/hazard/fence.tscn" id="10_xii2b"]
+[ext_resource type="PackedScene" uid="uid://dxhdj5xdheil7" path="res://entities/hazard/fence.tscn" id="10_xii2b"]
 [ext_resource type="PackedScene" uid="uid://j6hio56u2a6j" path="res://entities/trees/dirtytree.tscn" id="11_fm1jd"]
 [ext_resource type="PackedScene" uid="uid://bq8k24vn51g04" path="res://entities/rasenmäher/Rasenmäher.tscn" id="15_sui6v"]
 [ext_resource type="PackedScene" uid="uid://bti7qyqn1yx87" path="res://assets/ui/main_ui.tscn" id="18_b7y0n"]
-[ext_resource type="PackedScene" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
+[ext_resource type="PackedScene" uid="uid://du21ginnsca2f" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
+[ext_resource type="Script" path="res://entities/pickups/pickup_manager.gd" id="19_xl7j7"]
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
 [ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
 [ext_resource type="PackedScene" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
-[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://level/pickup_manager.gd" id="10_rhqlf"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -3985,7 +3984,7 @@ z_index = 1
 position = Vector2(1204, -741)
 
 [node name="PickupManager" type="Node" parent="."]
-script = ExtResource("10_rhqlf")
+script = ExtResource("19_xl7j7")
 
 [node name="Bird" parent="." instance=ExtResource("9_cw150")]
 position = Vector2(-1123, 187)

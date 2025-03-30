@@ -16,7 +16,7 @@ var size : int = 0
 func _ready() -> void:
 	SignalBus.rabbit_died.connect(_on_rabbit_died)
 	
-  for i : int in start_size:
+	for i : int in start_size:
 		spawn_in_area()
 	SignalBus.fruit_eaten.connect(breed)
 
@@ -83,4 +83,3 @@ func reset() -> void:
 		child.queue_free()
 	for i : int in start_size:
 		spawn_in_area()
-

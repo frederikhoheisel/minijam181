@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxhdj5xdheil7"]
 
 [ext_resource type="Texture2D" uid="uid://wahkgffrrsit" path="res://assets/objects/fence.png" id="1_e5hwi"]
-[ext_resource type="Script" path="res://entities/hazard/fence.gd" id="1_tk6kb"]
+[ext_resource type="Script" uid="uid://dk4vdvs5yaamg" path="res://entities/hazard/fence.gd" id="1_tk6kb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tk6kb"]
 resource_local_to_scene = true

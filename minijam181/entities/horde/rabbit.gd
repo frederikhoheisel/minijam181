@@ -73,6 +73,19 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 #gets enum for type of death plays animation accordinglyaw
 func die(death_type: String) -> void:
 	dead = true
+	var pos: Vector2 = global_position
+	
+	match _death_type:
+		"headshot": 
+			headshotted = true
+			%Sprite.play("headshot")
+			SignalBus.splatter.emit(pos, color, false, true, 3)
+			reparent(get_tree().root, true)
+			$HeadshotAudioPlayer.play()
+		"landmine":
+			SignalBus.splatter.emit(pos, color, true, true, 3)
+			%Sprite.play("splatter")
+		
 	$CollisionShape2D5.set_deferred("disabled", true)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	var pos: Vector2 = global_position

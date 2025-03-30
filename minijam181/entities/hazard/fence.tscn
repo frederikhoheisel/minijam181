@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://86anla8fxqhy"]
+
+[ext_resource type="Texture2D" uid="uid://wahkgffrrsit" path="res://assets/objects/fence.png" id="1_e5hwi"]
+[ext_resource type="Script" uid="uid://dk4vdvs5yaamg" path="res://entities/hazard/fence.gd" id="1_tk6kb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk6kb"]
+resource_local_to_scene = true
+atlas = ExtResource("1_e5hwi")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk6kb"]
+size = Vector2(64, 24)
+
+[node name="Fence" type="StaticBody2D"]
+script = ExtResource("1_tk6kb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_tk6kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tk6kb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tk6kb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

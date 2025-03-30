@@ -11,7 +11,7 @@ func _ready() -> void:
 	$Timer.wait_time = timer_time
 	$ExplosionArea/CollisionShape2D.disabled = true
 
-func _process(_delta) -> void:
+func _process(_delta : float) -> void:
 	pass
 	
 

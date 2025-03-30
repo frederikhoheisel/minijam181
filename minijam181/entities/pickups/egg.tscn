@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://b7gnavi76sdy" path="res://assets/audio/665182__el_boss__item-or-material-pickup-pop-2-of-3.wav" id="5_vf4tj"]
 [ext_resource type="Script" uid="uid://vosg4obqganr" path="res://entities/pickups/egg_audio_player.gd" id="6_ccw7c"]
 
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="4_csi2n"]
+[ext_resource type="AudioStream" uid="uid://b7gnavi76sdy" path="res://assets/audio/665182__el_boss__item-or-material-pickup-pop-2-of-3.wav" id="5_vf4tj"]
+[ext_resource type="Script" path="res://entities/pickups/egg_audio_player.gd" id="6_ccw7c"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_omwti"]
 atlas = ExtResource("1_job02")
 region = Rect2(3, 3, 16, 16)

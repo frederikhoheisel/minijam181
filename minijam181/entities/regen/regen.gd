@@ -3,9 +3,19 @@ extends Node2D
 @export var strength1 : float = 0.015
 @export var strength2 : float = 0.008
 
+var lighningSoundTimer:float
 
+func _ready() -> void:
+	reset_sound_timer()
+
+func reset_sound_timer():
+	lighningSoundTimer = randf_range(.5, 3)
 
 func _process(_delta : float) -> void:
+	lighningSoundTimer -= _delta
+	if lighningSoundTimer <= 0:
+		reset_sound_timer()
+		$ThunderPlayer.play()
 	adjustShadow(1, sin(Time.get_ticks_msec()) * strength1)
 	adjustShadow(2, sin(Time.get_ticks_msec() + 100) * strength2)
 	pass

@@ -52,6 +52,8 @@ func _process(delta: float) -> void:
 		if not is_idling:
 			%Sprite.animation = "idle"
 		is_idling = true
+
+	$Sprite.rotation = -rotation
 		
 
 
@@ -75,15 +77,10 @@ func die(death_type: String) -> void:
 	$CollisionShape2D5.set_deferred("disabled", true)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	var pos: Vector2 = global_position
-	#print("In die: " + str(global_position))
-	#print("In die2: " + str(pos))
+
 	dead = true
 	$".".z_index-= 1
-	#print("Late die: " + str(global_position))
-	
 	SignalBus.rabbit_died.emit(self, death_type, pos)
-	
-	
 
 func _on_idle_anim_timer_timeout() -> void:
 	if dead:

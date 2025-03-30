@@ -4,20 +4,31 @@ extends PathFollow2D
 var path : Path2D
 @export var timeToFinishPath : int = 10
 var runningTime : float = 0
+var lastPosition : Vector2
+@export var strength : int = 1
 
 var startMoving : bool = true
 
 func _ready() -> void:
 
-    path = get_parent()
-    pass
+	path = get_parent()
+	lastPosition = position
+	pass
 
 func _process(delta : float) -> void:
-    if startMoving:
-        progress_ratio = lerp(0, 1, (1.0 * runningTime) / timeToFinishPath)
-        runningTime += delta
-    pass
+	if startMoving:
+		progress_ratio = lerp(0, 1, (1.0 * runningTime) / timeToFinishPath)
+		runningTime += delta
+	if lastPosition.x - position.x < 0:
+		$Sprite2D.flip_h = true
+
+	lastPosition = position
+
+	$Sprite2D.position.y = sin(Time.get_ticks_msec() * 500) * strength + lastPosition.y
 
 
-func move() -> void:
-    pass
+
+
+func _on_character_2d_body_entered(body : Node2D) -> void:
+	if body.has_method("die"):
+		body.die()

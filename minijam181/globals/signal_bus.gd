@@ -2,4 +2,4 @@ extends Node
 
 signal fruit_eaten
 
-signal splatter
+signal rabbit_died

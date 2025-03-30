@@ -69,8 +69,7 @@ position = Vector2(54, 210)
 position = Vector2(97, 274)
 
 [node name="Hunter" parent="." instance=ExtResource("6_44x8d")]
-position = Vector2(-171, -140)
-shot_cooldown_secs = 0.5
+position = Vector2(-385, -350)
 
 [connection signal="body_entered" from="Hinderniss" to="Hinderniss" method="_on_body_entered"]
 [connection signal="body_entered" from="Hinderniss/Area2D" to="Hinderniss" method="_on_area_2d_body_entered"]

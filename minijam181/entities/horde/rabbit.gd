@@ -7,9 +7,7 @@ var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
 
-var blood_particle : Node2D = preload("res://entities/particles/blut.tscn").instantiate()
-var body_part_scene : PackedScene = preload("res://entities/particles/corpse.tscn")
-var floor_blut_scene : PackedScene = preload("res://entities/particles/floor_blut.tscn")
+
 
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
@@ -31,7 +29,7 @@ func _ready() -> void:
 	color = colors[randi() % colors.size()]
 	if randf()>0.9995:
 		color = Color(0,0,0,1)
-	%Sprite.modulate = color
+	self.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,39 +69,22 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 		is_in_horde = false
 
 #gets enum for type of death plays animation accordinglyaw
-func die(_death_type: String) -> void:
-	
+func die(death_type: String) -> void:
 	dead = true
-	var pos: Vector2 = global_position
-	
-	match _death_type:
-		"headshot": 
-			headshotted = true
-			%Sprite.play("headshot")
-			SignalBus.splatter.emit(pos, color, false, true, 3)
-			reparent(get_tree().root, true)
-		"landmine":
-			SignalBus.splatter.emit(pos, color, true, true, 3)
-			%Sprite.play("splatter")
-		
 	$CollisionShape2D5.set_deferred("disabled", true)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	var pos: Vector2 = global_position
+	$".".z_index-= 1
+	SignalBus.rabbit_died.emit(self, death_type, pos, color)
 	
 	
-			
-	
-	get_tree().root.add_child(blood_particle)
-	blood_particle.position = global_position
-	blood_particle.release_body_parts(color)
-	
-	
-
 
 func _on_idle_anim_timer_timeout() -> void:
 	if dead:
 		if !headshotted:
 			queue_free()
 		return
+		
 	if not is_idling:
 		return
 	var rng : int = randi_range(0, 3)
@@ -112,8 +93,11 @@ func _on_idle_anim_timer_timeout() -> void:
 	elif rng == 1:
 		%Sprite.play("idle_bob")
 	$IdleAnimTimer.start()
-
-
-		
 	
+func play_anim(anim: String) -> void:
+	%Sprite.play(anim)
+
+
+
+
 	

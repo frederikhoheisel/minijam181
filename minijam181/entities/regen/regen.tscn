@@ -1,19 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://blra8tbjk6riu"]
+[gd_scene load_steps=24 format=3 uid="uid://blra8tbjk6riu"]
 
-[ext_resource type="Shader" uid="uid://d2juifeu3plqr" path="res://regen.gdshader" id="1_1fqkv"]
-[ext_resource type="Script" uid="uid://dsghielosweih" path="res://regen.gd" id="1_ylyvs"]
+[ext_resource type="Shader" uid="uid://d2juifeu3plqr" path="res://entities/regen/regen.gdshader" id="1_1fqkv"]
+[ext_resource type="Script" uid="uid://dsghielosweih" path="res://entities/regen/regen.gd" id="1_ylyvs"]
 [ext_resource type="Texture2D" uid="uid://cyl18yq8erogp" path="res://assets/rain.png" id="2_lxyah"]
+[ext_resource type="Texture2D" uid="uid://pfdoc7pbfs3u" path="res://assets/static.png" id="4_h115w"]
+[ext_resource type="Texture2D" uid="uid://ckxuae5vqw8te" path="res://assets/lightning.png" id="5_ngjy8"]
+
+[sub_resource type="Gradient" id="Gradient_ngjy8"]
+offsets = PackedFloat32Array(0.284644, 0.595506, 1)
+colors = PackedColorArray(0.10521, 0.163154, 0.354737, 1, 0.211765, 0.203922, 0.337255, 0.431373, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u3400"]
+gradient = SubResource("Gradient_ngjy8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ds3oq"]
 shader = ExtResource("1_1fqkv")
-shader_parameter/count = 150
-shader_parameter/slant = -0.01
+shader_parameter/count = 500
+shader_parameter/slant = 0.067
 shader_parameter/speed = 50.0
 shader_parameter/blur = 0.002
-shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/size = Vector2(0.005, 0.2)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_n4n1h"]
+shader_parameter/colour = Color(0, 0.168627, 0.631373, 1)
+shader_parameter/size = Vector2(0.016, 0.2)
 
 [sub_resource type="Gradient" id="Gradient_ylyvs"]
 interpolation_mode = 1
@@ -26,25 +36,144 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.1, 0.1)
 
-[node name="Regen" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngjy8"]
+atlas = ExtResource("4_h115w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3400"]
+atlas = ExtResource("4_h115w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7q5n"]
+atlas = ExtResource("4_h115w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yunsp"]
+atlas = ExtResource("4_h115w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hf1uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngjy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3400")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7q5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yunsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf1uc"]
+atlas = ExtResource("5_ngjy8")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou76d"]
+atlas = ExtResource("5_ngjy8")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpgcr"]
+atlas = ExtResource("5_ngjy8")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3olv3"]
+atlas = ExtResource("5_ngjy8")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nnfr"]
+atlas = ExtResource("5_ngjy8")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0j3t4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf1uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou76d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpgcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3olv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nnfr")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngjy8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4n1h"]
+
+[node name="Regen" type="Node2D"]
 script = ExtResource("1_ylyvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -345)
+scale = Vector2(18.6986, 22.4096)
+texture = SubResource("GradientTexture2D_u3400")
 
 [node name="Rain" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ds3oq")
-position = Vector2(213.818, 307.403)
+position = Vector2(0, -360)
 rotation = 3.13773
-scale = Vector2(23.6611, -37.105)
+scale = Vector2(24.2078, -45.0666)
 texture = ExtResource("2_lxyah")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(201, 672)
-scale = Vector2(23.8021, 10.3384)
-shape = SubResource("CircleShape2D_n4n1h")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(200, 674)
-scale = Vector2(7.27968, 2.87559)
+position = Vector2(-1.05025, 2.16589)
+scale = Vector2(7.26833, 2.87559)
 texture = SubResource("GradientTexture2D_sl2gl")
+
+[node name="StaticAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-70, 27)
+scale = Vector2(5.0238, 2.64914)
+sprite_frames = SubResource("SpriteFrames_hf1uc")
+autoplay = "default"
+frame_progress = 0.0925557
+
+[node name="LightningAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-67, -218)
+scale = Vector2(6.45163, 14.3764)
+sprite_frames = SubResource("SpriteFrames_0j3t4")
+frame = 5
+
+[node name="DeathZone" type="Area2D" parent="LightningAnimation"]
+position = Vector2(0, 14.3986)
+scale = Vector2(0.5, 0.15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightningAnimation/DeathZone"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_ngjy8")
+disabled = true
+
+[node name="Entrance2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance2D"]
+position = Vector2(-0.0502167, 0.165894)
+scale = Vector2(19.6374, 8.52948)
+shape = SubResource("CircleShape2D_n4n1h")
+
+[connection signal="body_entered" from="LightningAnimation/DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="Entrance2D" to="." method="_on_entrance_2d_body_entered"]

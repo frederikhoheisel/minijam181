@@ -15,7 +15,7 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	if(should_be_colorless) {
 		float luminance = (col.r*RED_LUMINANCE + col.g*GREEN_LUMINANCE + col.b*BLUE_LUMINANCE);
-		col = vec4(vec3(luminance), col.a);
+		col = vec4(vec3(luminance), .7);
 	}
 
 	COLOR = col;

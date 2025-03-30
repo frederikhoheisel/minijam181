@@ -1,6 +1,12 @@
 extends Node
 
 var current_horde_size: int = 0
+	set(value):
+		current_horde_size = value
+		# if current_horde_size <= 0:
+		# 	print("stats, horde leer")
+		#	SignalBus.restart.emit()
+	
 
 var total_deaths: int = 0
 var mine_deaths: int = 0

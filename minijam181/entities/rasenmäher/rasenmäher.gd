@@ -6,6 +6,7 @@ var path : Path2D
 var runningTime : float = 0
 var lastPosition : Vector2
 @export var strength : int = 1
+@export var amplitude : float = 1
 
 var startMoving : bool = true
 
@@ -24,7 +25,7 @@ func _process(delta : float) -> void:
 
 	lastPosition = position
 
-	$Sprite2D.position.y = sin(Time.get_ticks_msec() * 500) * strength + lastPosition.y
+	%Sprite2D.position.y += sin(Time.get_ticks_msec() * strength) * amplitude
 
 
 

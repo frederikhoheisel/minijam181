@@ -19,8 +19,15 @@ texture = ExtResource("2_enxyu")
 [node name="Character2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character2D"]
-position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_qcjfw")
+
+
+[node name="Sprite2D" type="Sprite2D" parent="Character2D"]
+unique_name_in_owner = true
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1, -7)
+texture = ExtResource("2_enxyu")
 
 [node name="EntityAudioPlayer" parent="." instance=ExtResource("3_oe6fm")]
 stream = ExtResource("4_67uhn")

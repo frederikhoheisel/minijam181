@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
-var size : int = 1
-@export var num_rabbit : int = 1
+
+var start_size : int = 3
+var size : int = 0
 
 #movement
 @export var speed : int = 300
@@ -13,7 +14,7 @@ var size : int = 1
 
 func _ready() -> void:
 	SignalBus.rabbit_died.connect(_on_rabbit_died)
-	for i : int in num_rabbit:
+	for i : int in start_size:
 		spawn_in_area()
 	SignalBus.fruit_eaten.connect(breed)
 
@@ -40,11 +41,11 @@ func _physics_process(delta : float) -> void:
 	
 	if Input.is_action_pressed("rabbit_inc"):
 		#Stats.current_horde_size += 1
-		size += 1
-		print("Rabbits: ", size)
 		spawn_in_area()
 
 func spawn_in_area() -> void:
+	size += 1
+	print("Rabbits: ", size)
 	var randx : float = randf_range(-10, 10)
 	var randy : float = randf_range(-10, 10)
 	var rabbit : PackedScene = rabbit_scene
@@ -58,6 +59,9 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 	size -= 1
 	#Stats.current_horde_size -= 1
 	print("Rabbits: ", size)
+	if size <= 0:
+		print("stats, horde leer")
+		SignalBus.restart.emit()
 	
 
 
@@ -71,3 +75,10 @@ func breed() -> void:
 	$LoveParticles.emission_sphere_radius = size * 2
 	$LoveParticles.amount = 2 * size
 	$LoveParticles.emitting = true
+
+
+func reset() -> void:
+	for child in %RabbitContainer.get_children():
+		child.queue_free()
+	for i : int in start_size:
+		spawn_in_area()

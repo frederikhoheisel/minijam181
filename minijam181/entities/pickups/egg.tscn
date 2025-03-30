@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://du21ginnsca2f"]
+[gd_scene load_steps=9 format=3 uid="uid://du21ginnsca2f"]
 
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="1_job02"]
 [ext_resource type="Script" uid="uid://wnj2xrtfo2u6" path="res://entities/pickups/egg.gd" id="1_omwti"]
 [ext_resource type="Script" uid="uid://glgdma8hw1pc" path="res://entities/pickups/egg_collision.gd" id="3_yhb4q"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="4_csi2n"]
+[ext_resource type="AudioStream" uid="uid://b7gnavi76sdy" path="res://assets/audio/665182__el_boss__item-or-material-pickup-pop-2-of-3.wav" id="5_vf4tj"]
+[ext_resource type="Script" uid="uid://vosg4obqganr" path="res://entities/pickups/egg_audio_player.gd" id="6_ccw7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omwti"]
 atlas = ExtResource("1_job02")
@@ -22,4 +25,11 @@ position = Vector2(0, 1)
 scale = Vector2(0.832231, 0.840221)
 shape = SubResource("CircleShape2D_omwti")
 
+[node name="EntityAudioPlayer" parent="Area2D" instance=ExtResource("4_csi2n")]
+position = Vector2(0, 5.96046e-08)
+stream = ExtResource("5_vf4tj")
+volume_db = 10.0
+script = ExtResource("6_ccw7c")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="finished" from="Area2D/EntityAudioPlayer" to="Area2D/EntityAudioPlayer" method="_on_finished"]

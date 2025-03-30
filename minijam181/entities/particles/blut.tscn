@@ -11,7 +11,7 @@ func _ready() -> void:
 			child.emitting = true
 
 
-func release_body_parts(c : Color):
+func release_body_parts(c : Color) -> void:
 	for child in %BodyParts.get_children():
 		if child is GPUParticles2D:
 			child.process_material.color = c

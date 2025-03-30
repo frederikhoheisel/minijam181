@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://drmrasoyo3u8a"]
+[gd_scene load_steps=0 format=3 uid="uid://drmrasoyo3u8a"]
 
 [node name="EntityAudioPlayer" type="AudioStreamPlayer2D"]
 volume_db = 20.0

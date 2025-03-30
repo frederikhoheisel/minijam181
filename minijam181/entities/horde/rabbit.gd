@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	var direction_to_center : Vector2 = (target.position - position) * delta
 	move_and_collide(direction_to_center)
 	
-	var pseudo_speed = global_position - last_pos
+	var pseudo_speed: Vector2 = global_position - last_pos
 	if abs(pseudo_speed.length()) > 1:
 		%Sprite.scale.x = 1 if pseudo_speed.x > 0 else -1
 	last_pos = global_position
@@ -72,12 +72,15 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 #gets enum for type of death plays animation accordinglyaw
 func die(death_type: String) -> void:
-	dead = true
+	if dead:
+		return
 	$CollisionShape2D5.set_deferred("disabled", true)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	var pos: Vector2 = global_position
+
+	dead = true
 	$".".z_index-= 1
-	SignalBus.rabbit_died.emit(self, death_type, pos, color)
+	SignalBus.rabbit_died.emit(self, death_type, pos)
 
 func _on_idle_anim_timer_timeout() -> void:
 	if dead:

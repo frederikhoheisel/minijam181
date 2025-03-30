@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
+var size : int = 1
 @export var num_rabbit : int = 1
 
 #movement
@@ -11,9 +12,11 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
+	SignalBus.rabbit_died.connect(_on_rabbit_died)
 	for i : int in num_rabbit:
 		spawn_in_area()
 	SignalBus.fruit_eaten.connect(breed)
+
 
 func get_input() -> Vector2:
 	var input : Vector2 = Vector2()
@@ -36,7 +39,8 @@ func _physics_process(delta : float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_pressed("rabbit_inc"):
-		num_rabbit += 1
+		size += 1
+		print("Rabbits: ", size)
 		spawn_in_area()
 
 func spawn_in_area() -> void:
@@ -48,6 +52,11 @@ func spawn_in_area() -> void:
 	new_rabbit.target = %RabbitContainer
 	new_rabbit.position = Vector2(randx, randy)
 	%RabbitContainer.call_deferred("add_child", new_rabbit)
+	
+func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> void:
+	size -= 1
+	print("Rabbits: ", size)
+	
 
 
 func breed() -> void:
@@ -55,4 +64,3 @@ func breed() -> void:
 		return
 	spawn_in_area()
 	$LoveParticles.emitting = true
-

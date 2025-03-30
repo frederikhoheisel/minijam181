@@ -29,7 +29,7 @@ func _ready() -> void:
 	color = colors[randi() % colors.size()]
 	if randf()>0.9995:
 		color = Color(0,0,0,1)
-	%Sprite.modulate = color
+	self.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -3979,7 +3979,7 @@ rotation = -2.57779
 timeToFinishPath = 30
 
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
-speed = 100
+speed = 400
 friction = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]

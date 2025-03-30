@@ -10,7 +10,9 @@ func _ready() -> void:
 		texture_rect.set_instance_shader_parameter("should_be_colorless", true)
 
 	
-
+func _process(_delta) -> void:
+	if Input.is_action_pressed("skip"):
+		$CanvasLayer/StartScreen.hide()
 
 
 func update_ui(eggId : int) -> void:

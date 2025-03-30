@@ -43,7 +43,9 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 			return
 
 func _on_egg_found(eggId : int) -> void:
+	
 	eggs_found += 1
+	print(eggs_found)
 	if eggId == -1:
 		return
 	specific_egg_found[eggId] = 1

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dibhncy7lr8pq"]
+[gd_scene load_steps=5 format=3 uid="uid://cegvaakji6v3"]
 
 [ext_resource type="Script" uid="uid://d3x5ow7x4qxq8" path="res://level/fade_screen.gd" id="1_2lofo"]
 [ext_resource type="Script" path="res://level/fade_element.gd" id="2_t5wbv"]
-[ext_resource type="Script" uid="uid://c1a402hqfdxgl" path="res://level/restart_game.gd" id="3_t5wbv"]
+[ext_resource type="Script" path="res://level/restart_game.gd" id="3_t5wbv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drtxw"]
 
@@ -289,10 +289,12 @@ layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 68.0
-offset_bottom = -70.0
+offset_bottom = -65.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[center]Thank you for playing <3"
+text = "[center]Thank you for playing <3
+Press \"J\" for more lags ;)
+"
 
 [node name="RestartGame" type="Node" parent="Elements"]
 script = ExtResource("3_t5wbv")

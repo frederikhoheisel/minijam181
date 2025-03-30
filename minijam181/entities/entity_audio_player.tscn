@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drmrasoyo3u8a"]
+
+[node name="EntityAudioPlayer" type="AudioStreamPlayer2D"]
+volume_db = 20.0
+max_distance = 320.0
+max_polyphony = 2

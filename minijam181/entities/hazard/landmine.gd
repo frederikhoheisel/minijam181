@@ -21,6 +21,7 @@ func _on_trigger_area_body_entered(_body: Node2D) -> void:
 	
 
 func _on_timer_timeout() -> void:
+	$EntityAudioPlayer.play()
 	print("explode")
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", false)
 	$Sprite2D.hide()

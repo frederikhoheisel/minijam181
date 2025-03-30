@@ -82,7 +82,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 		#timer until kill zone gets activated
 		if $KillTimer.is_stopped():
-			$KillTimer.start(1)
+			$KillTimer.start(0.3)
 		
 
 

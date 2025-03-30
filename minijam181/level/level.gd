@@ -5,7 +5,7 @@ var body_part_scene : PackedScene = preload("res://entities/particles/corpse.tsc
 var floor_blut_scene : PackedScene = preload("res://entities/particles/floor_blut.tscn")
 
 func _ready() -> void:
-	
+	SignalBus.restart.connect(_on_restart)
 	SignalBus.rabbit_died.connect(_on_rabbit_died)
 	
 func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> void:
@@ -24,22 +24,25 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 		"landmine":
 			rabbit.headshotted = true
 			rabbit.play_anim("splatter")
-			#print("Pre splatter: " + str(pos))
 			splatter(pos, color, true, true, 3)
-			#print("Post splatter: " + str(pos))
 			rabbit.reparent.call_deferred($GoreContainer, true)
-			#print("Post Reparent splatter: " + str(pos))
 
 			blood(color, pos)
 		"rain":
-			rabbit.z_index+=10
-			rabbit.modulate = Color(1, 1, 1, 1)
+			rabbit.reparent.call_deferred($GoreContainer, true)
+			rabbit.z_index += 10
+			rabbit.get_node("Sprite").modulate = Color(1, 1, 1, 1)
+			#rabbit.modulate = Color(1, 1, 1, 1)
 			rabbit.play_anim("electrocute")
 		"river":
 			rabbit.reparent.call_deferred($GoreContainer, true)
-			rabbit.z_index+=10
+			rabbit.z_index += 10
 			rabbit.apply_impulse(Vector2(-.1, .03))
 			rabbit.play_anim("river")
+		"mäher":
+			rabbit.reparent.call_deferred($GoreContainer, true)
+			rabbit.play_anim("splatter")
+			rabbit.headshotted = true
 		"default": 
 			return
 	
@@ -66,3 +69,10 @@ func blood(color: Color, pos: Vector2) -> void:
 	$GoreContainer.add_child.call_deferred(new_blood_particle)
 	#print("somewhere:  " + str(new_blood_particle.global_position))
 	new_blood_particle.release_body_parts(color)
+
+func _on_restart() -> void:
+	await get_tree().create_timer(2).timeout
+	$Horde.position = Vector2(0,0)
+	Stats.current_horde_size = 2
+	$Horde.reset()
+	

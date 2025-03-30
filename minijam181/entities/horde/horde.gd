@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
-var num_rabbit : int = 1
+@export var num_rabbit : int = 1
 
 #movement
 @export var speed : int = 300
@@ -11,7 +11,9 @@ var num_rabbit : int = 1
 
 
 func _ready() -> void:
-	spawn_in_area()
+	for i : int in num_rabbit:
+		spawn_in_area()
+	SignalBus.fruit_eaten.connect(breed)
 
 func get_input() -> Vector2:
 	var input : Vector2 = Vector2()
@@ -42,6 +44,15 @@ func spawn_in_area() -> void:
 	var randy : float = randf_range(-10, 10)
 	var rabbit : PackedScene = rabbit_scene
 	var instance : RigidBody2D = rabbit.instantiate()
-	instance.target = %RabbitContainer
-	instance.position = Vector2(randx, randy)
-	%RabbitContainer.add_child(instance)
+	var new_rabbit : RigidBody2D = instance.duplicate()
+	new_rabbit.target = %RabbitContainer
+	new_rabbit.position = Vector2(randx, randy)
+	%RabbitContainer.call_deferred("add_child", new_rabbit)
+
+
+func breed() -> void:
+	if num_rabbit == 1:
+		return
+	spawn_in_area()
+	$LoveParticles.emitting = true
+

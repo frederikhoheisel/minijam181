@@ -52,6 +52,8 @@ func _process(delta: float) -> void:
 		if not is_idling:
 			%Sprite.animation = "idle"
 		is_idling = true
+
+	$Sprite.rotation = -rotation
 		
 
 

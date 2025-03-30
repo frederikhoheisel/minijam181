@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8pq7oxr4lt1i"]
+[gd_scene load_steps=5 format=3 uid="uid://c8pq7oxr4lt1i"]
 
 [ext_resource type="Script" uid="uid://chiejtdk5evtb" path="res://entities/horde/horde.gd" id="1_l0pov"]
 [ext_resource type="PackedScene" uid="uid://d21egvitomscu" path="res://entities/horde/rabbit.tscn" id="2_0db1f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6grg5"]
+load_path = "res://.godot/imported/objects.png-fa1ceb89840fd9345bc36f64b4f4a353.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffhr6"]
+atlas = SubResource("CompressedTexture2D_6grg5")
+region = Rect2(0, 0, 8.79573, 7.31267)
 
 [node name="Horde" type="CharacterBody2D"]
 script = ExtResource("1_l0pov")
@@ -11,3 +18,18 @@ acceleration = 1.0
 
 [node name="RabbitContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="LoveParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+texture = SubResource("AtlasTexture_ffhr6")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -20)
+spread = 20.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0

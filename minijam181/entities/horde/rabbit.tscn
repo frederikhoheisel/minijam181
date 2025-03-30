@@ -376,6 +376,7 @@ animations = [{
 }]
 
 [node name="Rabbit" type="RigidBody2D"]
+scale = Vector2(1.00055, 1)
 mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("1_cj7r5")

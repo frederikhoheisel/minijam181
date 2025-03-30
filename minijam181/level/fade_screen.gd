@@ -4,6 +4,8 @@ extends Control
 var children:Array[Node]
 var index:int = 0
 
+signal finished
+
 func _ready() -> void:
 	if start_on_ready:
 		start()
@@ -22,3 +24,4 @@ func on_next_element() -> void:
 	else:
 		print("done")
 		$Background.hide()
+		finished.emit()

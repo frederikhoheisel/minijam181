@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var rabbit_scene : PackedScene
 
-var size : int = 2
+var size : int = 3
 
 #movement
 @export var speed : int = 300

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2a7u2n12ku5j"]
+[gd_scene load_steps=3 format=3 uid="uid://c8fcmjn8qs3nx"]
 
 [ext_resource type="Script" uid="uid://biit81cibhbrh" path="res://entities/safe_zone.gd" id="1_n81vn"]
 

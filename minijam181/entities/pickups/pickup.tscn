@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clb5g3sqo635y" path="res://assets/objects/objects.png" id="2_nks83"]
 [ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_mnojt"]
 [ext_resource type="AudioStream" uid="uid://d368ywv42yr1j" path="res://assets/audio/devour.mp3" id="4_2ed8f"]
-[ext_resource type="Script" uid="uid://5xv3my0331bs" path="res://entities/pickups/pickup_audio_player.gd" id="5_2ed8f"]
+[ext_resource type="Script" path="res://entities/pickups/pickup_audio_player.gd" id="5_2ed8f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_td0co"]
 radius = 9.0

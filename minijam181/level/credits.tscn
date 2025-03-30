@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dibhncy7lr8pq"]
+[gd_scene load_steps=5 format=3 uid="uid://dibhncy7lr8pq"]
 
 [ext_resource type="Script" uid="uid://d3x5ow7x4qxq8" path="res://level/fade_screen.gd" id="1_2lofo"]
-[ext_resource type="Script" uid="uid://bhr0i4hok7qpa" path="res://level/fade_element.gd" id="2_t5wbv"]
+[ext_resource type="Script" path="res://level/fade_element.gd" id="2_t5wbv"]
+[ext_resource type="Script" uid="uid://c1a402hqfdxgl" path="res://level/restart_game.gd" id="3_t5wbv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_drtxw"]
 
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2lofo")
+start_on_ready = true
 
 [node name="Background" type="TextureRect" parent="."]
 visible = false
@@ -291,3 +293,8 @@ offset_bottom = -70.0
 grow_horizontal = 2
 bbcode_enabled = true
 text = "[center]Thank you for playing <3"
+
+[node name="RestartGame" type="Node" parent="Elements"]
+script = ExtResource("3_t5wbv")
+
+[connection signal="finished" from="." to="Elements/RestartGame" method="_on_credits_finished"]

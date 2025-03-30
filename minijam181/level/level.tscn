@@ -97,7 +97,6 @@ position = Vector2(48, 442)
 [node name="River12" parent="River" instance=ExtResource("8_6gtgk")]
 position = Vector2(529, 479)
 rotation = 0.34262
-scale = Vector2(1, 1)
 
 [node name="River7" parent="River" instance=ExtResource("8_6gtgk")]
 position = Vector2(301, 440)
@@ -3598,7 +3597,7 @@ curve = SubResource("Curve2D_sui6v")
 
 [node name="Rasenmäher" parent="Plains/Path2D2" instance=ExtResource("15_sui6v")]
 position = Vector2(-239.506, -220.587)
-rotation = 0.237042
+rotation = 0.237043
 timeToFinishPath = 2
 
 [node name="Path2D3" type="Path2D" parent="Plains"]
@@ -3607,7 +3606,7 @@ curve = SubResource("Curve2D_kp5pi")
 
 [node name="Rasenmäher" parent="Plains/Path2D3" instance=ExtResource("15_sui6v")]
 position = Vector2(-196, -232)
-rotation = 0.371709
+rotation = 0.371708
 timeToFinishPath = 2
 
 [node name="Bird" parent="Plains" instance=ExtResource("9_cw150")]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://d31xcu22cm7q6"]
+
+[ext_resource type="Script" uid="uid://b7jxi314u4vdx" path="res://assets/ui/main_ui.gd" id="1_m5obr"]
+[ext_resource type="Shader" uid="uid://j50yuhldwuet" path="res://assets/ui/main_ui.gdshader" id="1_vnf0o"]
+[ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="2_m5obr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8m5ry"]
+shader = ExtResource("1_vnf0o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkrp1"]
+atlas = ExtResource("2_m5obr")
+region = Rect2(3, 19, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5obr"]
+shader = ExtResource("1_vnf0o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tup2"]
+atlas = ExtResource("2_m5obr")
+region = Rect2(19, 19, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkrp1"]
+shader = ExtResource("1_vnf0o")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5q4w"]
+load_path = "res://.godot/imported/eggAtlas.png-1f5e21a0a9ed0820af12d577a0dd9421.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbkyd"]
+atlas = SubResource("CompressedTexture2D_g5q4w")
+region = Rect2(35, 19, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7tup2"]
+shader = ExtResource("1_vnf0o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjwcx"]
+atlas = ExtResource("2_m5obr")
+region = Rect2(19, 51, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5q4w"]
+shader = ExtResource("1_vnf0o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4rx4"]
+atlas = ExtResource("2_m5obr")
+region = Rect2(67, 19, 16, 16)
+
+[node name="MainUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5obr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureRect0" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_8m5ry")
+layout_mode = 2
+texture = SubResource("AtlasTexture_rkrp1")
+stretch_mode = 2
+
+[node name="TextureRect1" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_m5obr")
+layout_mode = 2
+texture = SubResource("AtlasTexture_7tup2")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_rkrp1")
+layout_mode = 2
+texture = SubResource("AtlasTexture_mbkyd")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_7tup2")
+layout_mode = 2
+texture = SubResource("AtlasTexture_kjwcx")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+material = SubResource("ShaderMaterial_g5q4w")
+layout_mode = 2
+texture = SubResource("AtlasTexture_x4rx4")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.00262, 4.19775)

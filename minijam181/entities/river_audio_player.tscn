@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://w01dtuwe55cj"]
+
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="1_6bln1"]
+[ext_resource type="Script" uid="uid://bf1wkoglxdlfx" path="res://entities/river_audio_player.gd" id="2_035uh"]
+[ext_resource type="AudioStream" uid="uid://ci1eyhn7kjej7" path="res://assets/audio/592643__repdac3__creek_river_closer.wav" id="2_lpbcu"]
+
+[node name="RiverAudioPlayer" instance=ExtResource("1_6bln1")]
+stream = ExtResource("2_lpbcu")
+autoplay = true
+script = ExtResource("2_035uh")

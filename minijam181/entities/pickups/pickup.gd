@@ -20,5 +20,7 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_meta("IsRabbit"):
 		SignalBus.fruit_eaten.emit()
-		print("pickup eaten")
-		queue_free()
+	print("pickup eaten")
+	$EntityAudioPlayer.play()
+	$EntityAudioPlayer.reparent.call_deferred(get_parent())
+	queue_free()

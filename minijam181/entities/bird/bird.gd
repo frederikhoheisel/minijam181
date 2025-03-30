@@ -69,7 +69,7 @@ func gen_point() -> Vector2:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_meta("IsRabbit") && $StopTimer.is_stopped():
-		print("caaw caaaw")
+		$EntityAudioPlayer.play()
 		slowness = 0
 		#set kill collision to shadow position
 		$KillArea.position = bird.position

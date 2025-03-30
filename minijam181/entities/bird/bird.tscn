@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://o4af7h46qiuh"]
+[gd_scene load_steps=11 format=3 uid="uid://o4af7h46qiuh"]
 
 [ext_resource type="Script" uid="uid://clkge5qcqt5pt" path="res://entities/bird/bird.gd" id="1_crnqq"]
 [ext_resource type="Texture2D" uid="uid://120mws04ldus" path="res://entities/bird/Unbenanntes_Projekt 10.png" id="2_cchwj"]
 [ext_resource type="Texture2D" uid="uid://c6hiohyf27w18" path="res://entities/bird/bird.png" id="2_j88tq"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="4_o63r4"]
+[ext_resource type="AudioStream" uid="uid://dasp5y6n043bk" path="res://assets/audio/64939__syna-max__wilhelm_scream.wav" id="5_wafl1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cchwj"]
 radius = 18.0
@@ -81,6 +83,10 @@ disabled = true
 
 [node name="KillTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="EntityAudioPlayer" parent="." instance=ExtResource("4_o63r4")]
+stream = ExtResource("5_wafl1")
+volume_db = 7.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="ShadowCollision/KillSprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

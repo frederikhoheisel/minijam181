@@ -26,6 +26,7 @@ var headshotted: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Sprite.animation = "idle"
+	%Sprite.speed_scale = randf_range(0.7, 1.3)
 	color = colors[randi() % colors.size()]
 	if randf()>0.9995:
 		color = Color(0,0,0,1)

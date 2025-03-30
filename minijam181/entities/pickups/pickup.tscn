@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6rg7o5dv3vxo"]
+[gd_scene load_steps=7 format=3 uid="uid://b6rg7o5dv3vxo"]
 
 [ext_resource type="Script" uid="uid://bjxhb4ah8fpcw" path="res://entities/pickups/pickup.gd" id="1_td0co"]
 [ext_resource type="Texture2D" uid="uid://clb5g3sqo635y" path="res://assets/objects/objects.png" id="2_nks83"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_mnojt"]
+[ext_resource type="AudioStream" uid="uid://d368ywv42yr1j" path="res://assets/audio/devour.mp3" id="4_2ed8f"]
+[ext_resource type="Script" uid="uid://5xv3my0331bs" path="res://entities/pickups/pickup_audio_player.gd" id="5_2ed8f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_td0co"]
 radius = 9.0
@@ -18,4 +21,9 @@ region_rect = Rect2(16, 0, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_td0co")
 
+[node name="EntityAudioPlayer" parent="." instance=ExtResource("3_mnojt")]
+stream = ExtResource("4_2ed8f")
+script = ExtResource("5_2ed8f")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="EntityAudioPlayer" to="EntityAudioPlayer" method="_on_finished"]

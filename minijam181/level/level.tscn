@@ -19,10 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://bq8k24vn51g04" path="res://entities/rasenmäher/Rasenmäher.tscn" id="15_sui6v"]
 [ext_resource type="PackedScene" uid="uid://bti7qyqn1yx87" path="res://assets/ui/main_ui.tscn" id="18_b7y0n"]
 [ext_resource type="PackedScene" uid="uid://du21ginnsca2f" path="res://entities/pickups/egg.tscn" id="19_kp5pi"]
-[ext_resource type="Script" path="res://entities/pickups/pickup_manager.gd" id="19_xl7j7"]
+[ext_resource type="Script" uid="uid://7ysj743lu3xd" path="res://entities/pickups/pickup_manager.gd" id="19_xl7j7"]
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="20_b7y0n"]
-[ext_resource type="PackedScene" uid="uid://c8fcmjn8qs3nx" path="res://entities/SafeZone.tscn" id="22_v4yay"]
-[ext_resource type="PackedScene" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
+[ext_resource type="PackedScene" uid="uid://2a7u2n12ku5j" path="res://entities/SafeZone.tscn" id="22_v4yay"]
+[ext_resource type="PackedScene" uid="uid://w01dtuwe55cj" path="res://entities/river_audio_player.tscn" id="23_xl7j7"]
 
 [sub_resource type="Gradient" id="Gradient_m5ivw"]
 offsets = PackedFloat32Array(0, 0.279221, 0.525974, 0.831169, 1)
@@ -3979,7 +3979,7 @@ rotation = -2.57779
 timeToFinishPath = 30
 
 [node name="Horde" parent="." instance=ExtResource("1_5gx2l")]
-speed = 400
+speed = 100
 friction = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Horde"]

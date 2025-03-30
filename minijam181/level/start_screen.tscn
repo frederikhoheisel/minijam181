@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyh2o7ui6kxk8"]
+[gd_scene load_steps=4 format=3 uid="uid://dyh2o7ui6kxk8"]
 
-[ext_resource type="Script" uid="uid://d3x5ow7x4qxq8" path="res://level/start_screen.gd" id="1_ncxyx"]
-[ext_resource type="Script" uid="uid://bhr0i4hok7qpa" path="res://level/fade_in_out.gd" id="2_afy8x"]
+[ext_resource type="Script" uid="uid://d3x5ow7x4qxq8" path="res://level/fade_screen.gd" id="1_ncxyx"]
+[ext_resource type="Script" uid="uid://bhr0i4hok7qpa" path="res://level/fade_element.gd" id="2_afy8x"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2r5vc"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -11,8 +13,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ncxyx")
+start_on_ready = true
 
-[node name="StartDelay" type="Control" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.00392157, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource("CanvasTexture_2r5vc")
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="StartDelay" type="Control" parent="Elements"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -22,7 +40,7 @@ stay_time = 0.0
 fade_out_time = 0.0
 sleep_after_time = 3.0
 
-[node name="ContentWarningContainer" type="CenterContainer" parent="." node_paths=PackedStringArray("fade_elements")]
+[node name="ContentWarningContainer" type="CenterContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,20 +53,23 @@ stay_time = 4.0
 sleep_after_time = 2.0
 fade_elements = [NodePath("Panel/RichTextLabel")]
 
-[node name="Panel" type="Panel" parent="ContentWarningContainer"]
+[node name="Panel" type="Panel" parent="Elements/ContentWarningContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ContentWarningContainer/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/ContentWarningContainer/Panel"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
 layout_mode = 0
-offset_left = -297.0
-offset_top = -103.0
-offset_right = 290.0
-offset_bottom = 128.0
-text = "CONTENT WARNING
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+bbcode_enabled = true
+text = "[center]
+CONTENT WARNING
 
-This game contains comedically exaggerated violence as well as procreating rabbits."
+This game contains comedically exaggerated violence as well as procreating rabbits.[/center]"
 
-[node name="QuoteContainer" type="CenterContainer" parent="." node_paths=PackedStringArray("fade_elements")]
+[node name="QuoteContainer" type="CenterContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,49 +77,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_afy8x")
+sleep_after_time = 2.0
 fade_elements = [NodePath("Panel/RichTextLabel"), NodePath("Panel3/RichTextLabel"), NodePath("Panel4/RichTextLabel"), NodePath("Panel2/RichTextLabel")]
 
-[node name="Panel" type="Panel" parent="QuoteContainer"]
+[node name="Panel" type="Panel" parent="Elements/QuoteContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/QuoteContainer/Panel"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
 layout_mode = 0
-offset_left = -297.0
-offset_top = -142.0
-offset_right = 290.0
-offset_bottom = 159.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 text = "\"The lone rabbit dies,"
 
-[node name="Panel3" type="Panel" parent="QuoteContainer"]
+[node name="Panel3" type="Panel" parent="Elements/QuoteContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/QuoteContainer/Panel3"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
 layout_mode = 0
-offset_left = -297.0
-offset_top = -142.0
-offset_right = 290.0
-offset_bottom = 159.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 text = "
    but the horde"
 
-[node name="Panel4" type="Panel" parent="QuoteContainer"]
+[node name="Panel4" type="Panel" parent="Elements/QuoteContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel4"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/QuoteContainer/Panel4"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
 layout_mode = 0
-offset_left = -297.0
-offset_top = -142.0
-offset_right = 290.0
-offset_bottom = 159.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
 text = "
                               dies too, I guess.\""
 
-[node name="Panel2" type="Panel" parent="QuoteContainer"]
+[node name="Panel2" type="Panel" parent="Elements/QuoteContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="QuoteContainer/Panel2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/QuoteContainer/Panel2"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
 layout_mode = 0
-offset_left = 106.0
-offset_right = 402.0
-offset_bottom = 88.0
+offset_left = -15.0
+offset_top = 45.0
+offset_right = 160.0
+offset_bottom = 90.0
 text = "~ Someone, probably"

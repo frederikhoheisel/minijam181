@@ -1,0 +1,291 @@
+[gd_scene load_steps=4 format=3 uid="uid://dibhncy7lr8pq"]
+
+[ext_resource type="Script" uid="uid://d3x5ow7x4qxq8" path="res://level/fade_screen.gd" id="1_2lofo"]
+[ext_resource type="Script" uid="uid://bhr0i4hok7qpa" path="res://level/fade_element.gd" id="2_t5wbv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_drtxw"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2lofo")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.00392157, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource("CanvasTexture_drtxw")
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page1" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 4.0
+fade_elements = [NodePath("Panel1/RichTextLabel"), NodePath("Panel2/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page1/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+offset_bottom = -94.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Down by the River"
+
+[node name="Panel2" type="Panel" parent="Elements/Page1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page1/Panel2"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 86.0
+offset_bottom = -52.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]developed by"
+
+[node name="Page2" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page2/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Mysterious_Juice"
+
+[node name="Page3" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page3/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Lipski"
+
+[node name="Page4" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page4/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Zaubergurke"
+
+[node name="Page5" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page5/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Göndyr"
+
+[node name="Page6" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page6"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page6/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]SinusMs"
+
+[node name="Page7" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page7"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page7/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Made with Godot"
+
+[node name="Page8" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page8"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page8/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -52.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]No rabbits were harmed in the making of this game."
+
+[node name="Page9" type="PanelContainer" parent="Elements" node_paths=PackedStringArray("fade_elements")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_t5wbv")
+fade_in_time = 2.0
+sleep_after_time = 5.0
+fade_elements = [NodePath("Panel1/RichTextLabel")]
+
+[node name="Panel1" type="Panel" parent="Elements/Page9"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elements/Page9/Panel1"]
+modulate = Color(0.894118, 0.65098, 0.447059, 1)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = -70.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]Thank you for playing <3"

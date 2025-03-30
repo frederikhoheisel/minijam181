@@ -18,7 +18,7 @@ func start() -> void:
 
 func on_next_element() -> void:
 	index += 1
-	if index < children.size():
+	if index < children.size() and children[index].has_method("start"):
 		children[index].start()
 		children[index].faded_out.connect(on_next_element)
 	else:

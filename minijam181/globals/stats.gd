@@ -47,6 +47,10 @@ func _on_egg_found(eggId : int) -> void:
 	if eggId == -1:
 		return
 	specific_egg_found[eggId] = 1
+	
+	if eggs_found >= 5:
+		eggs_found = 0
+		get_tree().change_scene_to_file("res://level/credits.tscn")
 
 func get_found_eggs() -> PackedByteArray:
 	return specific_egg_found

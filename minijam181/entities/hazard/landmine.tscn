@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccg1oj0cmnxfo"]
+
+[ext_resource type="Script" uid="uid://c02qmojv3tm7c" path="res://entities/hazard/landmine.gd" id="1_obobh"]
+[ext_resource type="Texture2D" uid="uid://dbyshobo5o4rm" path="res://assets/objects/landmine.png" id="2_o4qj2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhtll"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lkje"]
+radius = 32.0
+
+[node name="Landmine" type="Node2D"]
+script = ExtResource("1_obobh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o4qj2")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_fhtll")
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_7lkje")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]

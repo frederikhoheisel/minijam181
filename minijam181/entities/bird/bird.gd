@@ -2,7 +2,7 @@ extends Area2D
 
 @export var area_radius: int = 200
 @export var damage_radius: int = 48
-@export var speed: float = 1/2
+@export var speed: float = 0.5
 
 @onready var bird: CollisionShape2D = $ShadowCollision
 
@@ -13,7 +13,8 @@ var t  = 0.0
 # maximum distance to new points
 var dist: int = 64
 
-var slowness:float = speed
+# nicht hinschauen bitte
+var slowness = speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,10 +35,9 @@ func _process(delta: float) -> void:
 		
 		t = 0.0
 		
-	t = t + delta * 1/3
+	t = t + delta * slowness
 	
 	bird.position = quadratic_bezier(points, t)
-	print(t)
 
 func quadratic_bezier(points: PackedVector2Array, _t: float) -> Vector2:
 	var q0 = points[0].lerp(points[1], _t)
@@ -68,28 +68,40 @@ func gen_point() -> Vector2:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_meta("IsRabbit"):
-		print("bird kills rabbit!")
+	if body.has_meta("IsRabbit") && $StopTimer.is_stopped():
+		print("caaw caaaw")
 		slowness = 0
-		$KillCollision.position = bird.position
+		#set kill collision to shadow position
+		$KillArea.position = bird.position
+		#play kill anim.
+		$ShadowCollision/KillSprite.visible = true
+		$ShadowCollision/KillSprite/AnimationPlayer.play("bird_kill")
+		
+		#timer to resume normal behaviour
 		$StopTimer.start(3)
-		$KillTimer.start(1)
+	
+		#timer until kill zone gets activated
+		if $KillTimer.is_stopped():
+			$KillTimer.start(1)
 		
 
 
 func _on_kill_timer_timeout() -> void:
-	if $KillCollision.disabled:
-		$KillCollision.disabled = false
-		$KillSprite.visible = true
-		$KillSprite/AnimationPlayer.play()
-		$KillTimer.start(0.1)
-	else:
-		$KillCollision.disabled = true
+	if $KillArea/KillCollision.disabled:
+		$KillArea/KillCollision.set_deferred("disabled", false)
+		await get_tree().create_timer(0.1).timeout
+		$KillArea/KillCollision.set_deferred("disabled", true)
 
 
 func _on_stop_timer_timeout() -> void:
+	#pssssht
 	slowness = speed
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	$KillSprite.visible = false
+	$ShadowCollision/KillSprite.visible = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_meta("IsRabbit"):
+		body.die("landmine")

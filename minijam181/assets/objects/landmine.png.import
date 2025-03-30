@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6hiohyf27w18"
-path="res://.godot/imported/bird.png-d92148f867def5fc837ec06a0bb3c6f1.ctex"
+uid="uid://dbyshobo5o4rm"
+path="res://.godot/imported/landmine.png-56e914a3b29d17521ade2f327715fa7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bird.png"
-dest_files=["res://.godot/imported/bird.png-d92148f867def5fc837ec06a0bb3c6f1.ctex"]
+source_file="res://assets/objects/landmine.png"
+dest_files=["res://.godot/imported/landmine.png-56e914a3b29d17521ade2f327715fa7e.ctex"]
 
 [params]
 

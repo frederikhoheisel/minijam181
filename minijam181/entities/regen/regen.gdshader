@@ -6,7 +6,7 @@
 shader_type canvas_item;
 
 // can make snow by adjusting values
-uniform int count: hint_range(0, 2000) = 100;
+uniform int count: hint_range(0, 2000) = 500;
 uniform float slant: hint_range(-0.1, 0.1) = -0.01;
 uniform float speed: hint_range(25.0, 100.0) = 50.0;
 uniform float blur: hint_range(0.0005, 0.1) = 0.002;
@@ -35,7 +35,7 @@ void fragment() {
 	// slant each line left or right
     uv.x += uv.y * slant;
     float output = 0.0;
-    
+
     for (int i = 1; i <= count; i++) {
         float h1 = Hash(float(i));
         float h2 = Hash2(float(i));

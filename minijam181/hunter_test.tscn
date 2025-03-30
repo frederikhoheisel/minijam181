@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0geg61tbfj4r"]
+
+[ext_resource type="PackedScene" uid="uid://ctbiyqwsoktef" path="res://entities/hunter/hunter.tscn" id="1_htbdr"]
+[ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="2_xm6nw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Hunter" parent="." instance=ExtResource("1_htbdr")]
+position = Vector2(251, 90)
+
+[node name="Horde" parent="." instance=ExtResource("2_xm6nw")]

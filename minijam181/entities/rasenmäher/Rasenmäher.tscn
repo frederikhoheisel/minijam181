@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8xt3j1vd68v3" path="res://assets/rasenmäher.png" id="2_enxyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcjfw"]
-size = Vector2(1571, 965)
+size = Vector2(30, 10)
 
 [node name="Rasenmäher" type="PathFollow2D"]
 script = ExtResource("1_qcjfw")
@@ -12,11 +12,12 @@ script = ExtResource("1_qcjfw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
-scale = Vector2(50, 50)
 texture = ExtResource("2_enxyu")
 
-[node name="Character2D" type="CharacterBody2D" parent="."]
+[node name="Character2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character2D"]
-position = Vector2(-14.5, 109.5)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_qcjfw")
+
+[connection signal="body_entered" from="Character2D" to="." method="_on_character_2d_body_entered"]

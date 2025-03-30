@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6hiohyf27w18" path="res://entities/bird/bird.png" id="2_j88tq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cchwj"]
+radius = 18.0
 
 [sub_resource type="Animation" id="Animation_2o5yp"]
 length = 0.001
@@ -53,11 +54,12 @@ shape = SubResource("CircleShape2D_cchwj")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShadowCollision"]
 modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(4, 1.5)
 texture = ExtResource("2_cchwj")
 
 [node name="KillSprite" type="Sprite2D" parent="ShadowCollision"]
-visible = false
 position = Vector2(49, -331)
+scale = Vector2(2, 2)
 texture = ExtResource("2_j88tq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ShadowCollision/KillSprite"]
@@ -65,14 +67,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_k3v35")
 }
 
-[node name="FlightTimer" type="Timer" parent="ShadowCollision/KillSprite"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="StopTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="KillArea" type="Area2D" parent="."]
+scale = Vector2(3.24, 1.6)
 
 [node name="KillCollision" type="CollisionShape2D" parent="KillArea"]
 shape = SubResource("CircleShape2D_axl6x")

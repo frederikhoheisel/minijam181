@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
-[ext_resource type="Script" path="res://level/level.gd" id="1_44x8d"]
+[ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
 [ext_resource type="PackedScene" uid="uid://ccqq3m610xyhe" path="res://assets/background/background.tscn" id="1_vkbyq"]
 [ext_resource type="Texture2D" uid="uid://cer28igjqoxv4" path="res://icon.svg" id="2_qohg2"]
 [ext_resource type="PackedScene" uid="uid://ccg1oj0cmnxfo" path="res://entities/hazard/landmine.tscn" id="5_ktfr2"]

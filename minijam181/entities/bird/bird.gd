@@ -39,9 +39,9 @@ func _process(delta: float) -> void:
 	
 	bird.position = quadratic_bezier(points, t)
 
-func quadratic_bezier(points: PackedVector2Array, _t: float) -> Vector2:
-	var q0 = points[0].lerp(points[1], _t)
-	var q1 = points[1].lerp(points[2], _t)
+func quadratic_bezier(path: PackedVector2Array, _t: float) -> Vector2:
+	var q0 = path[0].lerp(path[1], _t)
+	var q1 = path[1].lerp(path[2], _t)
 	
 	var r = q0.lerp(q1, _t)
 	return r
@@ -98,7 +98,7 @@ func _on_stop_timer_timeout() -> void:
 	slowness = speed
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(name) -> void:
 	$ShadowCollision/KillSprite.visible = false
 
 

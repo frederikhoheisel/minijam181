@@ -1,12 +1,15 @@
 extends Node
 
 var current_horde_size: int = 0
+
 var total_deaths: int = 0
 var mine_deaths: int = 0
 var hunter_deaths: int = 0
 var zap_deaths: int = 0
 var drown_deaths: int = 0
 var bird_deaths: int = 0
+
+var eggs_found: int = 0
 
 func _ready() -> void:
 	SignalBus.rabbit_died.connect(_on_rabbit_died)

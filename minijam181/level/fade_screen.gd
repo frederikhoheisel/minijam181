@@ -23,5 +23,5 @@ func on_next_element() -> void:
 		children[index].faded_out.connect(on_next_element)
 	else:
 		print("done")
-		$Background.hide()
+		self.hide()
 		finished.emit()

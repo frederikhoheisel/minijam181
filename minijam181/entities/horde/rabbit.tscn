@@ -443,7 +443,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"splatter",
-"speed": 1.0
+"speed": 10.0
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gq60"]
@@ -476,9 +476,7 @@ shape = SubResource("CircleShape2D_ekdd1")
 unique_name_in_owner = true
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_4vbqd")
-animation = &"river"
-frame = 4
-frame_progress = 0.276237
+animation = &"splatter"
 
 [node name="IdleAnimTimer" type="Timer" parent="."]
 autostart = true

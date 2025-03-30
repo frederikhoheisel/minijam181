@@ -69,3 +69,4 @@ func try_set_target() -> void:
 
 func shoot(rabbit:Node2D) -> void:
 	rabbit.die("headshot")
+	$EntityAudioPlayer.play()

@@ -1,10 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://blra8tbjk6riu"]
+[gd_scene load_steps=27 format=3 uid="uid://blra8tbjk6riu"]
 
 [ext_resource type="Shader" uid="uid://d2juifeu3plqr" path="res://entities/regen/regen.gdshader" id="1_1fqkv"]
 [ext_resource type="Script" uid="uid://dsghielosweih" path="res://entities/regen/regen.gd" id="1_ylyvs"]
 [ext_resource type="Texture2D" uid="uid://cyl18yq8erogp" path="res://assets/rain.png" id="2_lxyah"]
 [ext_resource type="Texture2D" uid="uid://pfdoc7pbfs3u" path="res://assets/static.png" id="4_h115w"]
 [ext_resource type="Texture2D" uid="uid://ckxuae5vqw8te" path="res://assets/lightning.png" id="5_ngjy8"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="6_j7q5n"]
+[ext_resource type="AudioStream" uid="uid://b0ixebs63cewk" path="res://assets/audio/104391__inchadney__heavy-rain.wav" id="7_yunsp"]
+[ext_resource type="AudioStream" uid="uid://crnorawqw5aes" path="res://assets/audio/681518__pnmcarrierailfan__thunder-claps-lightning-strikes-storm-cracking.wav" id="8_yunsp"]
 
 [sub_resource type="Gradient" id="Gradient_ngjy8"]
 offsets = PackedFloat32Array(0.284644, 0.595506, 1)
@@ -174,6 +177,14 @@ disabled = true
 position = Vector2(-0.0502167, 0.165894)
 scale = Vector2(19.6374, 8.52948)
 shape = SubResource("CircleShape2D_n4n1h")
+
+[node name="EntityAudioPlayer" parent="." instance=ExtResource("6_j7q5n")]
+stream = ExtResource("7_yunsp")
+autoplay = true
+
+[node name="ThunderPlayer" parent="." instance=ExtResource("6_j7q5n")]
+stream = ExtResource("8_yunsp")
+max_polyphony = 5
 
 [connection signal="body_entered" from="LightningAnimation/DeathZone" to="." method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="Entrance2D" to="." method="_on_entrance_2d_body_entered"]

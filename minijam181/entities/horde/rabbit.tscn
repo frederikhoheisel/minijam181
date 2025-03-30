@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
 [ext_resource type="Texture2D" uid="uid://ccvxco5h51hbi" path="res://assets/hase/rabbit.png" id="2_cj7r5"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_6gq60"]
+[ext_resource type="AudioStream" uid="uid://bgo077n6cfuln" path="res://assets/audio/338919__natemarler__cantaloupe-insides-punch-and-splat.wav" id="4_c0plq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj7r5"]
 radius = 7.0
@@ -399,6 +401,9 @@ animation = &"electrocute"
 
 [node name="IdleAnimTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="HeadshotAudioPlayer" parent="." instance=ExtResource("3_6gq60")]
+stream = ExtResource("4_c0plq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

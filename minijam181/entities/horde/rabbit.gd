@@ -78,8 +78,6 @@ func die(death_type: String) -> void:
 	var pos: Vector2 = global_position
 	$".".z_index-= 1
 	SignalBus.rabbit_died.emit(self, death_type, pos, color)
-	
-	
 
 func _on_idle_anim_timer_timeout() -> void:
 	if dead:

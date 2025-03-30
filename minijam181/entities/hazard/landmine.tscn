@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccg1oj0cmnxfo"]
+[gd_scene load_steps=7 format=3 uid="uid://ccg1oj0cmnxfo"]
 
 [ext_resource type="Script" uid="uid://c02qmojv3tm7c" path="res://entities/hazard/landmine.gd" id="1_obobh"]
 [ext_resource type="Texture2D" uid="uid://dbyshobo5o4rm" path="res://assets/objects/landmine.png" id="2_o4qj2"]
+[ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_fhtll"]
+[ext_resource type="AudioStream" uid="uid://caqrj700u8y83" path="res://assets/audio/750825__artninja__custom_artillery_booming_explosive_impact_sounds.wav" id="4_7lkje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhtll"]
 radius = 9.0
@@ -27,6 +29,9 @@ shape = SubResource("CircleShape2D_fhtll")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 shape = SubResource("CircleShape2D_7lkje")
+
+[node name="EntityAudioPlayer" parent="." instance=ExtResource("3_fhtll")]
+stream = ExtResource("4_7lkje")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

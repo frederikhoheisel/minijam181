@@ -46,7 +46,7 @@ func startThunder() -> void:
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
-		body.die()
+		body.die("rain")
 
 
 # Show Static Animation at random point in Shadow

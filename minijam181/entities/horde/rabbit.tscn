@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d21egvitomscu"]
+[gd_scene load_steps=52 format=3 uid="uid://d21egvitomscu"]
 
 [ext_resource type="Script" uid="uid://rcavsmwb3fiu" path="res://entities/horde/rabbit.gd" id="1_cj7r5"]
 [ext_resource type="Texture2D" uid="uid://ccvxco5h51hbi" path="res://assets/hase/rabbit.png" id="2_cj7r5"]
@@ -166,6 +166,34 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("2_cj7r5")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndfo0"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y5mj"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgoqr"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftyhh"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1fh4"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbpmf"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li7er"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(96, 80, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4vbqd"]
 animations = [{
 "frames": [{
@@ -210,7 +238,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"electrocute",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -320,10 +348,31 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndfo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y5mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgoqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftyhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1fh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbpmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li7er")
+}],
 "loop": false,
 "name": &"splatter",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="Rabbit" type="RigidBody2D"]

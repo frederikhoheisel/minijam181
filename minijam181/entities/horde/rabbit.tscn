@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccvxco5h51hbi" path="res://assets/hase/rabbit.png" id="2_cj7r5"]
 [ext_resource type="PackedScene" uid="uid://drmrasoyo3u8a" path="res://entities/entity_audio_player.tscn" id="3_6gq60"]
 [ext_resource type="AudioStream" uid="uid://bgo077n6cfuln" path="res://assets/audio/338919__natemarler__cantaloupe-insides-punch-and-splat.wav" id="4_c0plq"]
+[ext_resource type="Texture2D" uid="uid://cj2u35pns1wbb" path="res://assets/pixel.png" id="3_sec4c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj7r5"]
 radius = 7.0
@@ -151,6 +152,42 @@ region = Rect2(32, 16, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysjad"]
 atlas = ExtResource("2_cj7r5")
 region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2t2t"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxkue"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6un"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkdbr"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_badah"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn2in"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr43v"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h382"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4davg"]
+atlas = ExtResource("2_cj7r5")
+region = Rect2(128, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8dft"]
 atlas = ExtResource("2_cj7r5")
@@ -335,6 +372,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d2t2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxkue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd6un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkdbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_badah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn2in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr43v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h382")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4davg")
+}],
+"loop": true,
+"name": &"river",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t8dft")
 }, {
 "duration": 1.0,
@@ -377,8 +446,18 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gq60"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+gravity = Vector3(0, 10, 0)
+
 [node name="Rabbit" type="RigidBody2D"]
-scale = Vector2(1.00055, 1)
 mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("1_cj7r5")
@@ -397,13 +476,21 @@ shape = SubResource("CircleShape2D_ekdd1")
 unique_name_in_owner = true
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_4vbqd")
-animation = &"electrocute"
+animation = &"river"
+frame = 4
+frame_progress = 0.276237
 
 [node name="IdleAnimTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="HeadshotAudioPlayer" parent="." instance=ExtResource("3_6gq60")]
 stream = ExtResource("4_c0plq")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("3_sec4c")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6gq60")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

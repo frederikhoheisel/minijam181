@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://o4af7h46qiuh"]
+
+[ext_resource type="Script" uid="uid://clkge5qcqt5pt" path="res://entities/bird/bird.gd" id="1_crnqq"]
+[ext_resource type="Texture2D" uid="uid://120mws04ldus" path="res://entities/bird/Unbenanntes_Projekt 10.png" id="2_cchwj"]
+[ext_resource type="Texture2D" uid="uid://c6hiohyf27w18" path="res://entities/bird/bird.png" id="2_j88tq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cchwj"]
+radius = 18.0
+
+[sub_resource type="Animation" id="Animation_2o5yp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(49, -331)]
+}
+
+[sub_resource type="Animation" id="Animation_yr30m"]
+resource_name = "bird_kill"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(49, -331), Vector2(0, 0), Vector2(-37, -224)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3v35"]
+_data = {
+&"RESET": SubResource("Animation_2o5yp"),
+&"bird_kill": SubResource("Animation_yr30m")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axl6x"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_crnqq")
+
+[node name="ShadowCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cchwj")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShadowCollision"]
+modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(4, 1.5)
+texture = ExtResource("2_cchwj")
+
+[node name="KillSprite" type="Sprite2D" parent="ShadowCollision"]
+position = Vector2(49, -331)
+scale = Vector2(2, 2)
+texture = ExtResource("2_j88tq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShadowCollision/KillSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_k3v35")
+}
+
+[node name="StopTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="KillArea" type="Area2D" parent="."]
+scale = Vector2(3.24, 1.6)
+
+[node name="KillCollision" type="CollisionShape2D" parent="KillArea"]
+shape = SubResource("CircleShape2D_axl6x")
+disabled = true
+
+[node name="KillTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="ShadowCollision/KillSprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]
+[connection signal="body_entered" from="KillArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

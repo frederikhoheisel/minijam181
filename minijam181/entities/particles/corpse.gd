@@ -5,3 +5,4 @@ extends Node2D
 func _ready() -> void:
 	var rng : int = randi_range(0, 9)
 	$Sprite2D.texture.region = Rect2(rng * 8, 0, 8, 8)
+	

@@ -12,7 +12,7 @@ func _process(_delta) -> void:
 	
 
 
-func _on_trigger_area_body_entered(body: Node2D) -> void:
+func _on_trigger_area_body_entered(_body: Node2D) -> void:
 	print("trigggerd")
 	if $Timer.is_stopped():
 		$Sprite2D.show()
@@ -29,5 +29,5 @@ func _on_timer_timeout() -> void:
 
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
-	if body.has_method("die"):
+	if body.has_meta("IsRabbit"):
 		body.die("landmine")

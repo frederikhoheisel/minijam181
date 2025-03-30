@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		$Line2D.clear_points()
 	update_line(delta)
 
-func update_line(delta: float):
+func update_line(delta: float) -> void:
 	if target != null:
 		if $Line2D.points.size() == 2:
 			var prev_point:Vector2 = $Line2D.get_point_position(1)
@@ -60,10 +60,10 @@ func update_line(delta: float):
 	#else:
 		#return (point) * 100
 
-func reset_cooldown():
+func reset_cooldown() -> void:
 	next_shot_in = shot_cooldown_secs
 
-func try_set_target():
+func try_set_target() -> void:
 	if target == null && targets_in_range.size() > 0:
 		target = targets_in_range[0]
 

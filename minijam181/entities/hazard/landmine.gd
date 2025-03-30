@@ -13,9 +13,11 @@ func _process(_delta) -> void:
 	
 
 
-func _on_trigger_area_body_entered(_body: Node2D) -> void:
-	print("triggerd")
-	print("minepos: ", position)
+func _on_trigger_area_body_entered(body: Node2D) -> void:
+	print(body)
+	if !body.has_meta("IsRabbit"):
+		return
+	print("trigggerd")
 	if $Timer.is_stopped():
 		$Sprite2D.show()
 		$Timer.start()
@@ -27,6 +29,7 @@ func _on_timer_timeout() -> void:
 	print("explode")
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", false)
 	$Sprite2D.hide()
+	$AnimatedSprite2D.play("explosion")
 	await get_tree().create_timer(0.1).timeout
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", true)
 

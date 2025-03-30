@@ -61,13 +61,13 @@ position_smoothing_enabled = true
 position = Vector2(579, -546)
 
 [node name="Landmine" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(87, 151)
+position = Vector2(147, 255)
 
 [node name="Landmine2" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(54, 210)
+position = Vector2(231, 276)
 
 [node name="Landmine3" parent="." instance=ExtResource("5_ktfr2")]
-position = Vector2(97, 274)
+position = Vector2(67, 336)
 
 [node name="Hunter" parent="." instance=ExtResource("6_44x8d")]
 position = Vector2(-171, -140)

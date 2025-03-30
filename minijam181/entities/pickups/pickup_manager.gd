@@ -1,7 +1,7 @@
 extends Node
 
 @export
-var fruit = preload("res://entities/pickups/fruit.tscn")
+var fruit = preload("res://entities/pickups/pickups.tscn")
 
 var fruit_instance
 
@@ -9,6 +9,7 @@ var fruit_instance
 func _ready() -> void:
 	print("manager ready")
 	spawn_pickups()
+	SignalBus.restart.connect(refresh_pickups)
 
 func spawn_pickups():
 	print("spawning fruit")
@@ -17,3 +18,8 @@ func spawn_pickups():
 	
 func delete_pickups():
 	fruit_instance.queue_free()
+	
+func refresh_pickups():
+	print("refreshing pickups")
+	delete_pickups()
+	spawn_pickups()

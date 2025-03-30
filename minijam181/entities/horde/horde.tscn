@@ -13,6 +13,8 @@ region = Rect2(0, 0, 8.79573, 7.31267)
 [node name="Horde" type="CharacterBody2D"]
 script = ExtResource("1_l0pov")
 rabbit_scene = ExtResource("2_0db1f")
+friction = 1.0
+acceleration = 1.0
 
 [node name="RabbitContainer" type="Node2D" parent="."]
 unique_name_in_owner = true

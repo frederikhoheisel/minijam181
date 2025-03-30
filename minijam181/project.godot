@@ -13,6 +13,7 @@ config_version=5
 config/name="minijam181"
 run/main_scene="uid://c7xbcv7c60eeb"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -72,3 +73,4 @@ rabbit_dec={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

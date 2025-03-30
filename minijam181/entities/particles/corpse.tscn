@@ -9,8 +9,11 @@ atlas = ExtResource("1_sp8fe")
 region = Rect2(0, 0, 8, 8)
 
 [node name="Corpse" type="Node2D"]
+z_index = -1
 script = ExtResource("1_yxrrd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 texture = SubResource("AtlasTexture_yxrrd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

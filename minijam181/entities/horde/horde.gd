@@ -55,3 +55,4 @@ func breed() -> void:
 		return
 	spawn_in_area()
 	$LoveParticles.emitting = true
+

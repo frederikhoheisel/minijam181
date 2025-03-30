@@ -7,30 +7,36 @@ var speed : int = 400
 var is_in_horde : bool = false
 var num_collisions : int = 0
 
-var blood_particle : Node2D = preload("res://entities/particles/blut.tscn").instantiate()
-var body_part : PackedScene = preload("res://entities/particles/corpse.tscn")
+
 
 var last_pos : Vector2 = Vector2.ZERO
 @export var movement_speed_thresshhold : float = 1.0
 var is_idling : bool = true
 
-var colors = [Color(0.5, 0.2, 0.0, 1.0),
-			  Color(0.2, 0.1, 0.0, 1.0),
-			  Color(0.6, 0.1, 0.4, 1.0),
+var colors: Array = [Color(1.0, 1.0, 1.0, 1.0),
+			  Color(0.5, 0.5, 0.5, 1.0),
+			  Color(0.95, 0.55, 0.25, 1.0),
 			  Color(0.8, 0.4, 0.1, 1.0)]
 
 var color : Color
+
+var dead: bool = false
+var headshotted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Sprite.animation = "idle"
 	color = colors[randi() % colors.size()]
-	%Sprite.modulate = color
+	if randf()>0.9995:
+		color = Color(0,0,0,1)
+	self.modulate = color
 	last_pos = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_in_horde:
+		return
+	if dead:
 		return
 	var direction_to_center : Vector2 = (target.position - position) * delta
 	move_and_collide(direction_to_center)
@@ -64,20 +70,23 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if num_collisions <= num_coll_in_horde:
 		is_in_horde = false
 
-
-func die():
-	get_tree().root.add_child(blood_particle)
-	blood_particle.position = global_position
-	blood_particle.release_body_parts(color)
+#gets enum for type of death plays animation accordinglyaw
+func die(death_type: String) -> void:
+	dead = true
+	$CollisionShape2D5.set_deferred("disabled", true)
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	var pos: Vector2 = global_position
+	$".".z_index-= 1
+	SignalBus.rabbit_died.emit(self, death_type, pos, color)
 	
-	var test = body_part
-	var instance = test.instantiate()
-	instance.position = global_position
-	get_tree().root.add_child(instance)
-	queue_free()
-
+	
 
 func _on_idle_anim_timer_timeout() -> void:
+	if dead:
+		if !headshotted:
+			queue_free()
+		return
+		
 	if not is_idling:
 		return
 	var rng : int = randi_range(0, 3)
@@ -86,3 +95,11 @@ func _on_idle_anim_timer_timeout() -> void:
 	elif rng == 1:
 		%Sprite.play("idle_bob")
 	$IdleAnimTimer.start()
+	
+func play_anim(anim: String) -> void:
+	%Sprite.play(anim)
+
+
+
+
+	

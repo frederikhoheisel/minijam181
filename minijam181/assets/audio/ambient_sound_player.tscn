@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfv1hajb1ewd3"]
+
+[ext_resource type="AudioStream" uid="uid://d01lm65nquwf4" path="res://assets/audio/792778__klankbeeld__estate-zegenwerp-autumn-nl-clean-117-pm-221029_0537.wav" id="1_lex6j"]
+
+[node name="AmbientSoundPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lex6j")
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.000560888

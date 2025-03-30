@@ -59,6 +59,24 @@ position = Vector2(551, 394)
 [node name="Pickup18" parent="." instance=ExtResource("1_da10x")]
 position = Vector2(72, -470)
 
+[node name="Pickup26" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(188, -253)
+
+[node name="Pickup27" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(-548, -270)
+
+[node name="Pickup28" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(-998, -423)
+
+[node name="Pickup29" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(-897, -190)
+
+[node name="Pickup30" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(-352, 298)
+
+[node name="Pickup31" parent="." instance=ExtResource("1_da10x")]
+position = Vector2(940, -181)
+
 [node name="Pickup19" parent="." instance=ExtResource("1_da10x")]
 position = Vector2(-339, -113)
 

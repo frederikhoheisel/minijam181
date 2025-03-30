@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://bti7qyqn1yx87"]
 
-[ext_resource type="Script" path="res://assets/ui/main_ui.gd" id="1_m5obr"]
-[ext_resource type="Shader" path="res://assets/ui/main_ui.gdshader" id="1_vnf0o"]
+[ext_resource type="Script" uid="uid://b7jxi314u4vdx" path="res://assets/ui/main_ui.gd" id="1_m5obr"]
+[ext_resource type="Shader" uid="uid://j50yuhldwuet" path="res://assets/ui/main_ui.gdshader" id="1_vnf0o"]
 [ext_resource type="Texture2D" uid="uid://bciyib1e8rdd6" path="res://assets/eggAtlas.png" id="2_m5obr"]
 [ext_resource type="Texture2D" uid="uid://dq35fjli2fye3" path="res://assets/ui/title_transp.png" id="4_8m5ry"]
 [ext_resource type="PackedScene" uid="uid://ddfcarqxw7b0i" path="res://assets/audio/volume_slider.tscn" id="5_rkrp1"]
-[ext_resource type="PackedScene" uid="uid://dyh2o7ui6kxk8" path="res://level/start_screen.tscn" id="6_7tup2"]
+[ext_resource type="PackedScene" path="res://level/start_screen.tscn" id="6_7tup2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8m5ry"]
 shader = ExtResource("1_vnf0o")

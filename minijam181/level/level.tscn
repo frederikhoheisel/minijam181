@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://c7xbcv7c60eeb"]
+[gd_scene load_steps=39 format=4 uid="uid://c7xbcv7c60eeb"]
 
 [ext_resource type="PackedScene" uid="uid://c8pq7oxr4lt1i" path="res://entities/horde/horde.tscn" id="1_5gx2l"]
 [ext_resource type="Script" uid="uid://b6flhielcmo6h" path="res://level/level.gd" id="1_44x8d"]
@@ -48,9 +48,15 @@ fill_from = Vector2(0.46789, 0.518349)
 
 [sub_resource type="Curve2D" id="Curve2D_tv7ir"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -300, -71, 0, 0, 0, 0, 101, -9, 0, 0, 0, 0, 239, -6, 0, 0, 0, 0, 383, -8, 0, 0, 0, 0, 566, -2, 0, 0, 0, 0, 896, -63)
+"points": PackedVector2Array(0, 0, 0, 0, -438, -74, 0, 0, 0, 0, 101, -9, 0, 0, 0, 0, 239, -6, 0, 0, 0, 0, 383, -8, 0, 0, 0, 0, 566, -2, 0, 0, 0, 0, 896, -63)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_xl7j7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -597, -97, -68.3013, -4.96737, 68.3013, 4.96737, -532, -27, -59.6084, -21.7322, 59.6084, 21.7322, -410, -114, -71.4059, -11.7975, 71.4059, 11.7975, -310, -21, -103.073, -5.58829, 103.073, 5.58829, -205, -108, -73.8896, -12.4184, 73.8896, 12.4184, -120, -7, -45.9482, -7.45106, 45.9482, 7.45106, -50, -85, -87.5499, -19.8695, 87.5499, 19.8695, 48, 27, -86.3081, -11.1766, 86.3081, 11.1766, 154, -38, -58.9875, -24.8368, 58.9875, 24.8368, 263, 59, -78.888, -8.26446, 78.888, 8.26446, 348, 13, -77.3854, -13.5237, 77.3854, 13.5237, 435, 99, -40.571, 51.8407, 40.571, -51.8407, 608, 28, -51.0894, 17.2802, 51.0894, -17.2802, 713, 15, -17.2802, 26.296, 17.2802, -26.296, 709, -57, -43.5763, 7.51315, 43.5763, -7.51315, 797, -45, 0, 0, 0, 0, 832, -107)
+}
+point_count = 17
 
 [sub_resource type="Curve2D" id="Curve2D_b7y0n"]
 _data = {
@@ -60,13 +66,13 @@ point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_sui6v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -239.506, -220.587, 0, 0, 0, 0, 265.494, -98.5865, 0, 0, 0, 0, 786.494, -102.587)
+"points": PackedVector2Array(0, 0, 0, 0, -212.506, -199.587, 0, 0, 0, 0, 265.494, -98.5865, 0, 0, 0, 0, 786.494, -102.587)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_kp5pi"]
 _data = {
-"points": PackedVector2Array(-132.983, -51.8407, 132.983, 51.8407, -196, -232, 0, 0, 0, 0, 280.494, -112.587, -210.368, 97.6709, 210.368, -97.6709, 879, -230)
+"points": PackedVector2Array(-132.983, -51.8407, 132.983, 51.8407, -244, -334, 0, 0, 0, 0, 280.494, -112.587, -210.368, 97.6709, 210.368, -97.6709, 879, -230)
 }
 point_count = 3
 
@@ -3532,9 +3538,17 @@ position = Vector2(-97, -800)
 curve = SubResource("Curve2D_tv7ir")
 
 [node name="Rasenmäher" parent="Plains/Path2D" instance=ExtResource("15_sui6v")]
-position = Vector2(-300, -71)
-rotation = 0.153399
+position = Vector2(-438, -74)
+rotation = 0.120014
 timeToFinishPath = 3
+
+[node name="Path2D6" type="Path2D" parent="Plains"]
+position = Vector2(-59, -901)
+curve = SubResource("Curve2D_xl7j7")
+
+[node name="Rasenmäher" parent="Plains/Path2D6" instance=ExtResource("15_sui6v")]
+position = Vector2(-597, -97)
+rotation = 0.822418
 
 [node name="Path2D4" type="Path2D" parent="Plains"]
 position = Vector2(-97, -719)
@@ -3549,16 +3563,16 @@ position = Vector2(-146.494, -758.413)
 curve = SubResource("Curve2D_sui6v")
 
 [node name="Rasenmäher" parent="Plains/Path2D2" instance=ExtResource("15_sui6v")]
-position = Vector2(-239.506, -220.587)
-rotation = 0.237043
-timeToFinishPath = 2
+position = Vector2(-212.506, -199.587)
+rotation = 0.208235
+timeToFinishPath = 5
 
 [node name="Path2D3" type="Path2D" parent="Plains"]
 position = Vector2(-180, -825)
 curve = SubResource("Curve2D_kp5pi")
 
 [node name="Rasenmäher" parent="Plains/Path2D3" instance=ExtResource("15_sui6v")]
-position = Vector2(-196, -232)
+position = Vector2(-244, -334)
 rotation = 0.371708
 timeToFinishPath = 2
 

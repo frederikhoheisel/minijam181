@@ -62,8 +62,12 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 
 
 func breed() -> void:
-	if num_rabbit == 1:
+	if size == 1:
 		return
 	#Stats.current_horde_size += 1
-	spawn_in_area()
+	var new_size : int = size * .5
+	for i : int in new_size:
+		spawn_in_area()
+	$LoveParticles.emission_sphere_radius = size * 2
+	$LoveParticles.amount = 2 * size
 	$LoveParticles.emitting = true

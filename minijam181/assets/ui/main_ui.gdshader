@@ -17,7 +17,7 @@ void fragment() {
 		float luminance = (col.r*RED_LUMINANCE + col.g*GREEN_LUMINANCE + col.b*BLUE_LUMINANCE);
 		col = vec4(vec3(luminance), col.a);
 	}
-	
+
 	COLOR = col;
 }
 

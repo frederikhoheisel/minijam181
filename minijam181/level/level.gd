@@ -43,6 +43,8 @@ func _on_rabbit_died(rabbit: RigidBody2D, death_type: String, pos: Vector2) -> v
 			rabbit.reparent.call_deferred($GoreContainer, true)
 			rabbit.play_anim("splatter")
 			rabbit.headshotted = true
+			splatter(pos, color, true, true, 5)
+			
 		"default": 
 			return
 	

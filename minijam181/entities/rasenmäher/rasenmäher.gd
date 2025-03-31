@@ -25,7 +25,7 @@ func _process(delta : float) -> void:
 
 	lastPosition = position
 
-
+	$Character2D/CollisionShape2D.position.y += sin(Time.get_ticks_msec() * strength) * amplitude
 	%Sprite2D.position.y += sin(Time.get_ticks_msec() * strength) * amplitude
 
 

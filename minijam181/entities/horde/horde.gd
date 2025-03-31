@@ -74,7 +74,8 @@ func breed() -> void:
 	var new_size : int = size * .5
 	for i : int in new_size:
 		spawn_in_area()
-	$LoveParticles.emission_sphere_radius = size * 2
+	$LoveParticles.emission_sphere_radius = log(size) * 15
+	print($LoveParticles.emission_sphere_radius)
 	$LoveParticles.amount = 2 * size
 	$LoveParticles.emitting = true
 

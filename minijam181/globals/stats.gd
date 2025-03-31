@@ -54,6 +54,8 @@ func _on_egg_found(eggId : int) -> void:
 		sum += i
 		
 	if sum >= 5:
+		for i: int in 5:
+			specific_egg_found[i] = 0
 		eggs_found = 0
 		get_tree().change_scene_to_file("res://level/credits.tscn")
 
